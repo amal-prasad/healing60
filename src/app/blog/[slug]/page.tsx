@@ -5,6 +5,17 @@ interface Props {
   params: { slug: string };
 }
 
+export async function generateStaticParams() {
+  return [
+    { slug: "understanding-anxiety" },
+    { slug: "communication-in-relationships" },
+    { slug: "helping-your-child-with-school-stress" },
+    { slug: "burnout-recovery" },
+    { slug: "mindfulness-for-beginners" },
+    { slug: "when-to-see-a-therapist" },
+  ];
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // In production, fetch from CMS
   const title = params.slug
