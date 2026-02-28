@@ -72,13 +72,13 @@ export default function RootLayout({
             src="/leaves.png"
             alt="Nature Background"
             fill
-            className="object-cover blur-[8px] scale-110 opacity-70 transition-all duration-1000"
+            className="object-cover blur-[4px] scale-105 opacity-80 transition-all duration-1000"
             priority
-            quality={85}
+            quality={90}
           />
-          <div className="absolute inset-0 bg-[#6B9B63]/10 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-[#FAF7F2]/20 backdrop-blur-[12px]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-[#A8C5A0]/10" />
+          <div className="absolute inset-0 bg-[#6B9B63]/5 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-[8px]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-[#A8C5A0]/5" />
         </div>
 
         <Bubbles />

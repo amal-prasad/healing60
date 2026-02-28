@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isHidden ? "-translate-y-full" : "translate-y-0"
+        className={`fixed top-0 left-0 right-0 z-[110] transition-all duration-500 ${isHidden ? "-translate-y-full" : "translate-y-0"
           } ${isScrolled
             ? "bg-[rgba(255,255,255,0.72)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.4)] shadow-sm"
             : "bg-[rgba(255,255,255,0.12)] backdrop-blur-[12px]"
@@ -96,11 +96,11 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[100] bg-cream/95 backdrop-blur-2xl flex flex-col items-center justify-center"
           >
             <div className="flex flex-col items-center gap-8">
               {navItems.map((item, i) => (
