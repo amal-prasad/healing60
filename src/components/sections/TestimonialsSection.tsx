@@ -82,7 +82,7 @@ export default function TestimonialsSection() {
     <section ref={sectionRef} className="relative section-padding overflow-hidden">
       <div className="container-wide">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
-          04 — Testimonials
+          Testimonials
         </p>
         <h2 className="font-display text-display-section text-charcoal mb-4">
           Stories of healing
@@ -92,10 +92,10 @@ export default function TestimonialsSection() {
         </p>
 
         {/* Stats Bar */}
-        <div className="stats-bar grid grid-cols-3 gap-6 mb-16 p-8 rounded-2xl bg-gradient-to-r from-lavender/10 via-cream to-sage/10 border border-charcoal/5">
+        <div className="stats-bar grid grid-cols-3 gap-6 mb-16 p-8 glass-panel">
           <div className="text-center">
-            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
-              <span className="stat-number" data-target={siteSettings.stats.livesTouched}>
+            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal heading-on-glass">
+              <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.livesTouched}>
                 0
               </span>
               <span className="text-lavender-deep">+</span>
@@ -104,9 +104,9 @@ export default function TestimonialsSection() {
               Lives Touched
             </p>
           </div>
-          <div className="text-center border-x border-charcoal/10">
-            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
-              <span className="stat-number" data-target={siteSettings.stats.rating}>
+          <div className="text-center border-x border-white/20">
+            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal heading-on-glass">
+              <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.rating}>
                 0
               </span>
               <span className="text-sage-deep">&#9733;</span>
@@ -116,8 +116,8 @@ export default function TestimonialsSection() {
             </p>
           </div>
           <div className="text-center">
-            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
-              <span className="stat-number" data-target={siteSettings.stats.yearsExperience}>
+            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal heading-on-glass">
+              <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.yearsExperience}>
                 0
               </span>
               <span className="text-lavender-deep">+</span>
@@ -138,7 +138,7 @@ export default function TestimonialsSection() {
               key={t.id}
               className="testimonial-card flex-shrink-0 w-[85vw] sm:w-[70vw] lg:w-auto snap-center"
             >
-              <div className="h-full rounded-2xl border border-charcoal/5 bg-warm-white p-8 transition-all duration-300 hover:shadow-lg hover:shadow-lavender/10">
+              <div className="h-full glass-panel bg-[rgba(255,255,255,0.22)] p-8 transition-all duration-300 hover:shadow-lg hover:shadow-lavender/10">
                 <StarRating rating={t.rating} />
                 <p className="mt-4 text-charcoal leading-relaxed text-[0.95rem]">
                   &ldquo;{t.text}&rdquo;

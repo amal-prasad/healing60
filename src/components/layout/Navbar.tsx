@@ -32,13 +32,11 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isHidden ? "-translate-y-full" : "translate-y-0"
-        } ${
-          isScrolled
-            ? "glass-panel-light shadow-sm"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isHidden ? "-translate-y-full" : "translate-y-0"
+          } ${isScrolled
+            ? "bg-[rgba(255,255,255,0.72)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.4)] shadow-sm"
+            : "bg-[rgba(255,255,255,0.12)] backdrop-blur-[12px]"
+          }`}
       >
         <nav className="container-wide flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -55,7 +53,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 rounded-full text-sm font-body font-medium text-charcoal-light hover:text-charcoal hover:bg-lavender/20 transition-all duration-300"
+                className="px-4 py-2 rounded-full text-sm font-body font-medium text-charcoal hover:bg-lavender/20 transition-all duration-300"
               >
                 {item.label}
               </Link>
@@ -67,7 +65,7 @@ export default function Navbar() {
             href={siteSettings.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:flex items-center gap-2 px-6 py-2.5 rounded-full bg-lavender text-charcoal text-cta hover:bg-lavender-deep hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-lavender/30"
+            className="hidden lg:flex items-center gap-2 px-6 py-2.5 rounded-full bg-lavender text-charcoal text-cta shadow-sm hover:bg-lavender-deep hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-lavender/30"
           >
             Book a Session
           </Link>
@@ -79,19 +77,16 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${
-                isMobileOpen ? "rotate-45 translate-y-2" : ""
-              }`}
+              className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${isMobileOpen ? "rotate-45 translate-y-2" : ""
+                }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${
-                isMobileOpen ? "opacity-0" : ""
-              }`}
+              className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${isMobileOpen ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${
-                isMobileOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
+              className={`block w-6 h-0.5 bg-charcoal transition-all duration-300 ${isMobileOpen ? "-rotate-45 -translate-y-2" : ""
+                }`}
             />
           </button>
         </nav>

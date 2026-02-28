@@ -13,11 +13,11 @@ export default function PricingPage() {
     <main className="pt-20">
       <section className="section-padding">
         <div className="container-wide">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-section-index uppercase text-charcoal-light mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-16 glass-panel-strong p-8 lg:p-12">
+            <p className="text-section-index uppercase text-charcoal-light mb-4 heading-on-glass">
               Pricing
             </p>
-            <h1 className="font-display text-display-hero text-charcoal text-balance">
+            <h1 className="font-display text-display-hero text-charcoal text-balance heading-on-glass">
               Simple,{" "}
               <span className="text-gradient-lavender">transparent</span>{" "}
               pricing.
@@ -32,11 +32,10 @@ export default function PricingPage() {
             {pricingTiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`relative rounded-2xl border p-8 transition-all duration-300 hover:shadow-xl ${
-                  tier.recommended
+                className={`relative rounded-2xl border p-8 transition-all duration-300 hover:shadow-xl ${tier.recommended
                     ? "border-lavender bg-lavender/5 shadow-lg shadow-lavender/10"
                     : "border-charcoal/5 bg-warm-white hover:shadow-lavender/10"
-                }`}
+                  }`}
               >
                 {tier.recommended && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -97,11 +96,10 @@ export default function PricingPage() {
                   href={tier.price > 0 ? siteSettings.whatsapp : "/contact"}
                   target={tier.price > 0 ? "_blank" : undefined}
                   rel={tier.price > 0 ? "noopener noreferrer" : undefined}
-                  className={`mt-8 block w-full text-center px-6 py-3 rounded-full text-cta transition-all duration-300 ${
-                    tier.recommended
+                  className={`mt-8 block w-full text-center px-6 py-3 rounded-full text-cta transition-all duration-300 ${tier.recommended
                       ? "bg-lavender text-charcoal hover:bg-lavender-deep hover:text-white"
                       : "border border-charcoal/10 text-charcoal hover:bg-charcoal hover:text-cream"
-                  }`}
+                    }`}
                 >
                   {tier.price > 0 ? "Book Now" : "Contact Us"}
                 </Link>

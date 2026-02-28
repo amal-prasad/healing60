@@ -13,17 +13,19 @@ export default function ServicesPage() {
     <main className="pt-20">
       <section className="section-padding">
         <div className="container-wide">
-          <p className="text-section-index uppercase text-charcoal-light mb-4">
-            Our Services
-          </p>
-          <h1 className="font-display text-display-hero text-charcoal max-w-3xl text-balance">
-            Find the support{" "}
-            <span className="text-gradient-sage">that fits you.</span>
-          </h1>
-          <p className="mt-6 text-lg text-charcoal-light max-w-2xl leading-relaxed">
-            Every journey is unique. Explore our counselling services and find the
-            approach that resonates with your needs.
-          </p>
+          <div className="glass-panel-strong p-8 lg:p-12 max-w-3xl mx-auto text-center rounded-3xl">
+            <p className="text-section-index uppercase text-charcoal-light mb-4 heading-on-glass">
+              Our Services
+            </p>
+            <h1 className="font-display text-display-hero text-charcoal mx-auto text-balance heading-on-glass">
+              Find the support{" "}
+              <span className="text-gradient-sage">that fits you.</span>
+            </h1>
+            <p className="mt-6 text-lg text-charcoal-light max-w-2xl mx-auto leading-relaxed">
+              Every journey is unique. Explore our counselling services and find the
+              approach that resonates with your needs.
+            </p>
+          </div>
 
           <div className="mt-16 space-y-8">
             {services.map((service, i) => (

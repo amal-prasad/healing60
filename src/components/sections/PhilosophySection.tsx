@@ -84,14 +84,14 @@ export default function PhilosophySection() {
       <div className="container-wide relative z-10">
         {/* Section Index */}
         <p className="text-section-index uppercase text-charcoal-light mb-8">
-          01 — Understanding You
+          Understanding You
         </p>
 
         {/* Headline with word-by-word reveal */}
-        <div ref={wordsRef} className="max-w-3xl">
+        <div ref={wordsRef} className="max-w-[720px] mx-auto glass-panel-strong p-10 lg:p-16 text-center">
           <h2
             ref={headlineRef}
-            className="font-display text-display-section text-charcoal leading-tight"
+            className="font-display text-display-section text-charcoal leading-tight heading-on-glass"
           >
             {[
               "Whatever",

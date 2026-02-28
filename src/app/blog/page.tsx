@@ -70,17 +70,19 @@ export default function BlogPage() {
     <main className="pt-20">
       <section className="section-padding">
         <div className="container-wide">
-          <p className="text-section-index uppercase text-charcoal-light mb-4">
-            Blog
-          </p>
-          <h1 className="font-display text-display-hero text-charcoal max-w-2xl text-balance">
-            Insights for your{" "}
-            <span className="text-gradient-sage">inner journey.</span>
-          </h1>
-          <p className="mt-6 text-lg text-charcoal-light max-w-xl leading-relaxed">
-            Articles, guides, and expert perspectives on mental health,
-            relationships, and personal growth.
-          </p>
+          <div className="glass-panel-strong p-8 lg:p-12 max-w-3xl mx-auto text-center rounded-3xl">
+            <p className="text-section-index uppercase text-charcoal-light mb-4 heading-on-glass">
+              Blog
+            </p>
+            <h1 className="font-display text-display-hero text-charcoal mx-auto text-balance heading-on-glass">
+              Insights for your{" "}
+              <span className="text-gradient-sage">inner journey.</span>
+            </h1>
+            <p className="mt-6 text-lg text-charcoal-light max-w-xl mx-auto leading-relaxed">
+              Articles, guides, and expert perspectives on mental health,
+              relationships, and personal growth.
+            </p>
+          </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (

@@ -30,7 +30,7 @@ export default function BookingCTASection() {
           transition={{ duration: 0.6 }}
           className="text-section-index uppercase text-charcoal-light mb-6"
         >
-          06 — Begin
+          Begin
         </motion.p>
 
         <motion.h2

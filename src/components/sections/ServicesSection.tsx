@@ -66,16 +66,9 @@ export default function ServicesSection() {
 
   return (
     <section ref={sectionRef} className="relative section-padding overflow-hidden">
-      {/* Large faded section number */}
-      <div className="absolute top-20 right-8 lg:right-16 pointer-events-none select-none">
-        <span className="font-display text-[8rem] lg:text-[14rem] font-light text-charcoal/[0.03] leading-none">
-          02
-        </span>
-      </div>
-
       <div className="container-wide relative z-10">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
-          02 — Services
+          Services
         </p>
         <h2 className="font-display text-display-section text-charcoal mb-4">
           How we can help
@@ -91,16 +84,14 @@ export default function ServicesSection() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className={`service-card group perspective-card ${
-                service.featured
-                  ? "md:col-span-2 lg:col-span-2 lg:row-span-2"
-                  : ""
-              }`}
+              className={`service-card group perspective-card ${service.featured
+                ? "md:col-span-2 lg:col-span-2 lg:row-span-2"
+                : ""
+                }`}
             >
               <div
-                className={`perspective-card-inner h-full rounded-2xl border border-charcoal/5 bg-warm-white p-8 lg:p-10 transition-all duration-500 hover:shadow-xl hover:shadow-lavender/10 hover:border-lavender/30 ${
-                  service.featured ? "lg:p-12" : ""
-                }`}
+                className={`perspective-card-inner h-full glass-panel p-8 lg:p-10 transition-all duration-500 hover:shadow-xl hover:shadow-lavender/20 hover:bg-[rgba(255,255,255,0.28)] hover:backdrop-blur-[20px] ${service.featured ? "lg:p-12" : ""
+                  }`}
               >
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-xl bg-lavender/15 flex items-center justify-center text-lavender-deep mb-6 group-hover:bg-lavender/25 transition-colors duration-300">
@@ -108,11 +99,10 @@ export default function ServicesSection() {
                 </div>
 
                 <h3
-                  className={`font-display font-light text-charcoal mb-3 ${
-                    service.featured
-                      ? "text-2xl lg:text-3xl"
-                      : "text-xl lg:text-2xl"
-                  }`}
+                  className={`font-display font-light text-charcoal mb-3 ${service.featured
+                    ? "text-2xl lg:text-3xl"
+                    : "text-xl lg:text-2xl"
+                    }`}
                 >
                   {service.title}
                 </h3>

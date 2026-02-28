@@ -40,7 +40,7 @@ export default function TherapistsSection() {
     <section ref={sectionRef} className="relative section-padding">
       <div className="container-wide">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
-          03 — Our Team
+          Our Team
         </p>
         <h2 className="font-display text-display-section text-charcoal mb-4">
           Meet your therapists
@@ -56,9 +56,9 @@ export default function TherapistsSection() {
               key={therapist.id}
               className="therapist-card group perspective-card"
             >
-              <div className="perspective-card-inner rounded-2xl overflow-hidden border border-charcoal/5 bg-warm-white transition-all duration-500 hover:shadow-xl hover:shadow-lavender/10">
+              <div className="perspective-card-inner glass-panel mt-12 transition-all duration-500 hover:shadow-xl hover:shadow-lavender/10">
                 {/* Photo placeholder */}
-                <div className="relative h-72 bg-gradient-to-br from-lavender/20 via-sage/10 to-cream overflow-hidden">
+                <div className="relative h-64 mx-6 -mt-12 rounded-2xl bg-gradient-to-br from-lavender/20 via-sage/10 to-cream overflow-hidden shadow-lg border border-white/40">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-24 h-24 rounded-full bg-lavender/20 flex items-center justify-center">
                       <svg

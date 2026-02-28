@@ -58,6 +58,7 @@ export default function CorporateSection() {
     <section
       ref={sectionRef}
       className="relative section-padding bg-charcoal text-warm-white overflow-hidden"
+      style={{ textShadow: "none" }}
     >
       {/* Subtle background texture */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
@@ -67,7 +68,7 @@ export default function CorporateSection() {
 
       <div className="container-wide relative z-10">
         <p className="text-section-index uppercase text-warm-white/50 mb-4">
-          05 — Corporate
+          Corporate
         </p>
         <h2 className="font-display text-display-section text-warm-white mb-4">
           For organizations

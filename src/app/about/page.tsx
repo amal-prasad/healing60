@@ -21,18 +21,20 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="section-padding">
         <div className="container-wide">
-          <p className="text-section-index uppercase text-charcoal-light mb-4">
-            About Healing60
-          </p>
-          <h1 className="font-display text-display-hero text-charcoal max-w-3xl text-balance">
-            A safe space,{" "}
-            <span className="text-gradient-lavender">built with intention.</span>
-          </h1>
-          <p className="mt-6 text-lg lg:text-xl text-charcoal-light max-w-2xl leading-relaxed">
-            Healing60 was born from a simple belief: that everyone deserves
-            access to compassionate, professional mental health support — without
-            stigma, without judgment, and without barriers.
-          </p>
+          <div className="glass-panel-strong p-8 lg:p-12 max-w-4xl mx-auto text-center">
+            <p className="text-section-index uppercase text-charcoal-light mb-4 heading-on-glass">
+              About Healing60
+            </p>
+            <h1 className="font-display text-display-hero text-charcoal mx-auto text-balance heading-on-glass">
+              A safe space,{" "}
+              <span className="text-gradient-lavender">built with intention.</span>
+            </h1>
+            <p className="mt-6 text-lg lg:text-xl text-charcoal-light max-w-2xl mx-auto leading-relaxed">
+              Healing60 was born from a simple belief: that everyone deserves
+              access to compassionate, professional mental health support — without
+              stigma, without judgment, and without barriers.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -196,9 +198,8 @@ export default function AboutPage() {
             {therapists.map((t, i) => (
               <div
                 key={t.id}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  i % 2 === 1 ? "lg:direction-rtl" : ""
-                }`}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:direction-rtl" : ""
+                  }`}
               >
                 {/* Photo placeholder */}
                 <div className={`${i % 2 === 1 ? "lg:order-2" : ""}`}>
