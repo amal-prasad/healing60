@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent"
     >
       {/* 1. Deepest Layer: The Person / Background Image */}
       <div className="absolute inset-0 z-0">
@@ -20,11 +20,11 @@ export default function HeroSection() {
           src="/hero-bg.png"
           alt="Healing60 Patient/Therapist"
           fill
-          className="object-cover lg:object-contain object-right lg:object-center z-0"
+          className="object-cover object-center z-0 lg:object-contain"
           priority
         />
-        {/* Brightening Wash - Forces the base image to remain high-key/light */}
-        <div className="absolute inset-0 bg-white/40 z-0" />
+        {/* Brightening Wash - reduced for more presence */}
+        <div className="absolute inset-0 bg-white/30 z-0" />
       </div>
 
       {/* 2. Middle Layer: Moving Organic Blobs (Between Person and Glass) */}
