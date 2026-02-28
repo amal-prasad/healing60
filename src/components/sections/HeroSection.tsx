@@ -1,56 +1,51 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense, lazy } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteSettings } from "@/lib/data";
+import { useWebGLSupport } from "@/lib/useWebGLSupport";
+import HeroFallback from "@/components/3d/HeroFallback";
+
+const HeroScene = lazy(() => import("@/components/3d/HeroScene"));
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const webglTier = useWebGLSupport();
 
   useEffect(() => {
-    // Mouse parallax for orbs on desktop
-    const handleMouseMove = (e: MouseEvent) => {
-      const orbs = document.querySelectorAll(".hero-orb");
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+    // Mouse parallax for fallback orbs on desktop
+    if (webglTier !== "full") {
+      const handleMouseMove = (e: MouseEvent) => {
+        const orbs = document.querySelectorAll(".hero-orb");
+        const x = (e.clientX / window.innerWidth - 0.5) * 2;
+        const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
-      orbs.forEach((orb, i) => {
-        const speed = (i + 1) * 8;
-        const el = orb as HTMLElement;
-        el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-      });
-    };
+        orbs.forEach((orb, i) => {
+          const speed = (i + 1) * 8;
+          const el = orb as HTMLElement;
+          el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+        });
+      };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [webglTier]);
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Ambient Orb Background (CSS Fallback — always renders) */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Lavender orb */}
-        <div
-          className="hero-orb orb orb-lavender w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] top-1/4 -left-20 lg:left-10 animate-float-slow"
-          style={{ animationDelay: "0s" }}
-        />
-        {/* Sage orb */}
-        <div
-          className="hero-orb orb orb-sage w-[400px] h-[400px] lg:w-[600px] lg:h-[600px] bottom-10 right-0 lg:right-20 animate-float-medium"
-          style={{ animationDelay: "-3s" }}
-        />
-        {/* Cream/warm orb */}
-        <div
-          className="hero-orb orb orb-cream w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] top-10 right-1/4 animate-float-fast"
-          style={{ animationDelay: "-1.5s" }}
-        />
-        {/* Extra subtle glow */}
-        <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream/80" />
-      </div>
+      {/* 3D Scene or CSS Fallback */}
+      {webglTier === "full" ? (
+        <Suspense fallback={<HeroFallback />}>
+          <HeroScene />
+        </Suspense>
+      ) : (
+        <HeroFallback />
+      )}
 
       {/* Content */}
       <div className="relative z-10 container-wide text-center lg:text-left lg:max-w-4xl">
