@@ -25,6 +25,10 @@ export default function HeroSection() {
         />
         {/* Brightening Wash - reduced for more presence */}
         <div className="absolute inset-0 bg-white/30 z-0" />
+
+        {/* Edge Masks for White Left/Right */}
+        <div className="absolute inset-y-0 left-0 w-[15%] md:w-[25%] lg:w-[30%] bg-gradient-to-r from-white via-white/80 to-transparent z-[5]" />
+        <div className="absolute inset-y-0 right-0 w-[15%] md:w-[25%] lg:w-[30%] bg-gradient-to-l from-white via-white/80 to-transparent z-[5]" />
       </div>
 
       {/* 2. Middle Layer: Moving Organic Blobs (Between Person and Glass) */}
