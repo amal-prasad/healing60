@@ -27,7 +27,7 @@ export default function GlobalBackground() {
     }, []);
 
     return (
-        <div className="fixed -top-[15dvh] -left-[10vw] z-0 w-[120vw] h-[130dvh] overflow-hidden pointer-events-none bg-[#2D2D2D]">
+        <div className="fixed inset-0 z-0 w-full h-[100dvh] overflow-hidden pointer-events-none bg-[#2D2D2D]">
             {/* 
                 Layer 1: The Photographic Backgrounds
                 Absolute positioning with object-cover ensures they scale perfectly 
