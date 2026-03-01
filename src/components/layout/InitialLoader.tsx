@@ -94,36 +94,35 @@ export default function InitialLoader() {
                 var loader = document.getElementById('initial-loader');
                 if (!loader) return;
                 
-                var startTime = Date.now();
-                var minDuration = 3000;
                 var hasFired = false;
-                
-                var hideLoader = function() {
-                  if (hasFired) return;
-                  
-                  var elapsedTime = Date.now() - startTime;
-                  var timeRemaining = minDuration - elapsedTime;
-                  
-                  if (timeRemaining > 0) {
-                    setTimeout(executeHide, timeRemaining);
-                  } else {
-                    executeHide();
-                  }
-                };
 
                 var executeHide = function() {
                   if (hasFired) return;
                   hasFired = true;
+                  
+                  // Set a global flag so client-side navigation or slow hydration knows it's done
+                  window.__HEALING60_LOADER_DONE = true;
+                  
+                  // Dispatch the hero sync event exactly as the loader begins fade-out
+                  document.dispatchEvent(new CustomEvent('hero:release'));
                   loader.classList.add('hidden');
                 };
+
+                var minDelayPromise = new Promise(function(resolve) {
+                  setTimeout(resolve, 3000);
+                });
+
+                var windowLoadPromise = new Promise(function(resolve) {
+                  if (document.readyState === 'complete') {
+                    resolve();
+                  } else {
+                    window.addEventListener('load', resolve);
+                  }
+                });
+
+                Promise.all([windowLoadPromise, minDelayPromise]).then(executeHide);
                 
-                if (document.readyState === 'complete') {
-                  hideLoader();
-                } else {
-                  window.addEventListener('load', hideLoader);
-                }
-                
-                // Fallback timeout: 6000ms max (3s min + 3s buffer)
+                // Hard fallback timeout: 6000ms max (3s min + 3s buffer)
                 setTimeout(executeHide, 6000);
               })();
             </script>

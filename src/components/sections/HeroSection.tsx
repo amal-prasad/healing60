@@ -1,17 +1,42 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { siteSettings } from "@/lib/data";
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [isLocked, setIsLocked] = useState(true);
+
+  useEffect(() => {
+    // If loader completed before React hydrated, or if arriving via client-side routing
+    // @ts-ignore
+    if (typeof window !== "undefined" && window.__HEALING60_LOADER_DONE) {
+      setIsLocked(false);
+      return;
+    }
+
+    const handleRelease = () => {
+      setIsLocked(false);
+    };
+
+    // Listen for the custom event dispatched by InitialLoader when fade-out begins
+    document.addEventListener("hero:release", handleRelease);
+
+    // If InitialLoader has already fired or user navigated client-side (no full reload)
+    // the loader won't be visible. We fallback to unlocking just in case.
+    const fallbackTimeout = setTimeout(handleRelease, 6000);
+
+    return () => {
+      document.removeEventListener("hero:release", handleRelease);
+      clearTimeout(fallbackTimeout);
+    };
+  }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
+      className={`relative min-h-[100svh] flex items-center justify-center overflow-hidden ${isLocked ? 'hero--locked' : 'hero--animate'}`}
     >
       {/* Primary Hero Background Image */}
       {/* Base background removed in favor of GlobalBackground */}
@@ -21,52 +46,39 @@ export default function HeroSection() {
         className="relative z-40 container-wide pt-20 flex flex-col items-center justify-center w-full min-h-[100svh]"
         style={{ textShadow: 'none' }}
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center max-w-4xl"
+        <div
+          className="hero-animated hero-anim-scale flex flex-col items-center text-center max-w-4xl"
+          style={{ "--hero-duration": "1s" } as React.CSSProperties}
         >
           {/* A secondary, softer text backing just to ensure absolute readability if needed, though the 60px blur does most work */}
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-section-index uppercase text-charcoal/80 font-semibold tracking-widest mb-6 relative z-10"
-            style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}
+          <p
+            className="hero-animated hero-anim-up text-section-index uppercase text-charcoal/80 font-semibold tracking-widest mb-6 relative z-10"
+            style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)', "--hero-delay": "0.2s", "--hero-duration": "0.6s", "--hero-y": "20px" } as React.CSSProperties}
           >
             Psychology & Counselling in Indore
-          </motion.p>
+          </p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-display text-display-hero text-charcoal text-balance relative z-10"
-            style={{ textShadow: '0 4px 20px rgba(255,255,255,0.6)' }}
+          <h1
+            className="hero-animated hero-anim-up font-display text-display-hero text-charcoal text-balance relative z-10"
+            style={{ textShadow: '0 4px 20px rgba(255,255,255,0.6)', "--hero-delay": "0.4s", "--hero-duration": "0.8s", "--hero-y": "30px" } as React.CSSProperties}
           >
             A space where
             <br />
             <span className="text-gradient-animated" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}>healing begins.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-6 text-lg lg:text-xl font-medium text-charcoal/80 max-w-2xl text-center leading-relaxed relative z-10"
-            style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}
+          <p
+            className="hero-animated hero-anim-up mt-6 text-lg lg:text-xl font-medium text-charcoal/80 max-w-2xl text-center leading-relaxed relative z-10"
+            style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)', "--hero-delay": "0.7s", "--hero-duration": "0.6s", "--hero-y": "20px" } as React.CSSProperties}
           >
             Professional, compassionate therapy for individuals, couples, and
             families. Your journey to well-being starts here.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            className="mt-12 flex flex-col sm:flex-row gap-6 justify-center relative z-10 w-full md:w-auto"
+          <div
+            className="hero-animated hero-anim-up mt-12 flex flex-col sm:flex-row gap-6 justify-center relative z-10 w-full md:w-auto"
+            style={{ "--hero-delay": "1s", "--hero-duration": "0.6s", "--hero-y": "20px" } as React.CSSProperties}
           >
             <Link
               href={siteSettings.whatsapp}
@@ -89,30 +101,24 @@ export default function HeroSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40"
+      <div
+        className="hero-animated hero-anim-fade absolute bottom-10 left-1/2 -translate-x-1/2 z-40"
+        style={{ "--hero-delay": "1.5s", "--hero-duration": "0.8s" } as React.CSSProperties}
       >
         <div className="flex flex-col items-center gap-3 text-charcoal-light">
           <span className="text-xs tracking-[0.2em] font-medium uppercase drop-shadow-sm">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="bg-white/30 backdrop-blur-sm p-2 rounded-full border border-white/40 shadow-sm"
-          >
+          <div className="animate-bounce-slow bg-white/30 backdrop-blur-sm p-2 rounded-full border border-white/40 shadow-sm">
             <svg className="w-5 h-5 relative top-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
