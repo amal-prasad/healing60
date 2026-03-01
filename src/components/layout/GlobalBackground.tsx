@@ -9,10 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
  * Submerged behind heavy frosted glass and subtle paper noise.
  */
 const backgrounds = [
-    "/images/bg1.webp",
-    "/images/bg2.webp",
-    "/images/bg3.webp",
-    "/images/bg4.webp"
+    "/images/rs=w_1280,h_885.webp",
+    "/images/rs=w_1280,h_700.webp"
 ];
 
 export default function GlobalBackground() {
