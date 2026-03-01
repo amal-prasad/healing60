@@ -71,7 +71,7 @@ export default function RootLayout({
 
         <Bubbles />
         <Navbar />
-        <main className="relative z-10 flex flex-col min-h-screen">
+        <main className="relative z-10 flex flex-col min-h-[100svh]">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />

@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
+    <main className="min-h-[100svh] flex items-center justify-center">
       <div className="flex flex-col items-center gap-6">
         {/* Animated loading orbs */}
         <div className="relative w-16 h-16">

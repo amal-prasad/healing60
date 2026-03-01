@@ -64,10 +64,10 @@ export default function PhilosophySection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center section-padding overflow-hidden text-charcoal"
+      className="relative min-h-[100svh] flex items-center section-padding overflow-hidden text-charcoal"
     >
       {/* Philosophy Background Image */}
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-2.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Base background removed in favor of GlobalBackground */}
       {/* Section glass overlay */}
       <div className="absolute inset-0 z-0 glass-separator-sage" />
       {/* Subtle particle dots background */}
@@ -142,6 +142,6 @@ export default function PhilosophySection() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

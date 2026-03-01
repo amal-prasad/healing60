@@ -38,9 +38,9 @@ export default function TherapistsSection() {
 
   return (
     <section ref={sectionRef} className="relative section-padding overflow-hidden text-charcoal">
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-4.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Base background removed in favor of GlobalBackground */}
       <div className="absolute inset-0 z-0 glass-separator-lavender" />
-      <div className="container-wide">
+      <div className="container-wide relative z-10">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
           Our Team
         </p>

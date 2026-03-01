@@ -11,14 +11,14 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
     >
       {/* Primary Hero Background Image */}
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-1.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Base background removed in favor of GlobalBackground */}
       {/* Light glass overlay over image */}
       {/* 4. Top Content Layer (Text & CTA) */}
       <div
-        className="relative z-40 container-wide pt-20 flex flex-col items-center justify-center w-full min-h-screen"
+        className="relative z-40 container-wide pt-20 flex flex-col items-center justify-center w-full min-h-[100svh]"
         style={{ textShadow: 'none' }}
       >
         <motion.div

@@ -59,7 +59,7 @@ export default function CorporateSection() {
       ref={sectionRef}
       className="relative section-padding text-charcoal overflow-hidden"
     >
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-2.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Base background removed in favor of GlobalBackground */}
       <div className="absolute inset-0 z-0 glass-separator-sage" />
       {/* Subtle background texture */}
       <div className="absolute inset-0 pointer-events-none opacity-5">

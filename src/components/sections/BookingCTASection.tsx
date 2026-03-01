@@ -7,7 +7,7 @@ import { siteSettings } from "@/lib/data";
 export default function BookingCTASection() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-3.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Base background removed in favor of GlobalBackground */}
       <div className="absolute inset-0 z-0 glass-separator-light" />
       {/* Animated auroral gradient background */}
       <div className="absolute inset-0 pointer-events-none">

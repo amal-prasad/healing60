@@ -1,48 +1,30 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 /**
  * GlobalBackground
  * An elegant crossfading slider of 4 photographic backgrounds.
  * Submerged behind heavy frosted glass and subtle paper noise.
  */
-const backgrounds = [
-    "/images/rs=w_1280,h_885.webp",
-    "/images/rs=w_1280,h_700.webp"
-];
+const background = "/main-bg.webp";
 
 export default function GlobalBackground() {
-    const [index, setIndex] = useState(0);
-
-    // Crossfade interval
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIndex((prev) => (prev + 1) % backgrounds.length);
-        }, 8000); // 8 second display time per image
-        return () => clearInterval(interval);
-    }, []);
-
     return (
-        <div className="fixed inset-0 z-0 w-full h-[100dvh] overflow-hidden pointer-events-none bg-[#2D2D2D]">
+        <div className="fixed inset-0 z-0 w-full h-[100lvh] overflow-hidden pointer-events-none bg-[#2D2D2D]">
             {/* 
                 Layer 1: The Photographic Backgrounds
                 Absolute positioning with object-cover ensures they scale perfectly 
                 on Android and iOS without breaking the layout.
             */}
-            <AnimatePresence>
-                <motion.img
-                    key={index}
-                    src={backgrounds[index]}
-                    alt="Atmospheric Background"
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 3, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
-            </AnimatePresence>
+            <motion.img
+                src={background}
+                alt="Atmospheric Background"
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 3, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full object-cover"
+            />
 
             {/* A subtle darkening overlay specifically over the images to guarantee text contrast */}
             <div className="absolute inset-0 bg-black/10" />

@@ -66,7 +66,7 @@ export default function ServicesSection() {
 
   return (
     <section ref={sectionRef} className="relative section-padding overflow-hidden">
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-3.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Base background removed in favor of GlobalBackground */}
       <div className="absolute inset-0 z-0 glass-separator-light" />
       <div className="container-wide relative z-10">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
