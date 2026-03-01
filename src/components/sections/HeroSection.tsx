@@ -48,7 +48,7 @@ export default function HeroSection() {
           >
             A space where
             <br />
-            <span className="text-gradient-animated font-bold tracking-tight" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>healing begins.</span>
+            <span className="text-gradient-animated" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}>healing begins.</span>
           </motion.h1>
 
           <motion.p
