@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { outfit, inter } from "@/lib/fonts";
 import { generateLocalBusinessJsonLd } from "@/lib/jsonLd";
-import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFab from "@/components/layout/WhatsAppFab";
