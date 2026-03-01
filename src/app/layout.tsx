@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppFab from "@/components/layout/WhatsAppFab";
 import PageTransition from "@/components/layout/PageTransition";
 import Bubbles from "@/components/layout/Bubbles";
+import GlobalBackground from "@/components/layout/GlobalBackground";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -67,23 +68,13 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${inter.variable} font-body antialiased text-charcoal`}
       >
-        <div className="fixed inset-0 -z-50 w-full h-[100dvh] bg-[#FAF7F2] overflow-hidden">
-          <Image
-            src="/leaves.png"
-            alt="Nature Background"
-            fill
-            className="object-cover blur-[4px] scale-105 opacity-80 transition-all duration-1000"
-            priority
-            quality={90}
-          />
-          <div className="absolute inset-0 bg-[#6B9B63]/5 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-[8px]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-[#A8C5A0]/5" />
-        </div>
+        <GlobalBackground />
 
         <Bubbles />
         <Navbar />
-        <PageTransition>{children}</PageTransition>
+        <main className="relative z-10 flex flex-col min-h-screen">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <WhatsAppFab />
       </body>

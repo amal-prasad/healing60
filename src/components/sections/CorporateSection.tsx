@@ -57,9 +57,10 @@ export default function CorporateSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative section-padding bg-charcoal text-warm-white overflow-hidden"
-      style={{ textShadow: "none" }}
+      className="relative section-padding text-charcoal overflow-hidden"
     >
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-2.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      <div className="absolute inset-0 z-0 glass-separator-sage" />
       {/* Subtle background texture */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(196,181,224,0.3),transparent_50%)]" />
@@ -67,13 +68,13 @@ export default function CorporateSection() {
       </div>
 
       <div className="container-wide relative z-10">
-        <p className="text-section-index uppercase text-warm-white/50 mb-4">
+        <p className="text-section-index uppercase text-charcoal-light mb-4">
           Corporate
         </p>
-        <h2 className="font-display text-display-section text-warm-white mb-4">
+        <h2 className="font-display text-display-section text-charcoal mb-4">
           For organizations
         </h2>
-        <p className="text-lg text-warm-white/70 max-w-xl mb-12">
+        <p className="text-lg text-charcoal-light max-w-xl mb-12">
           Invest in your team&apos;s mental health. Our corporate programs are
           designed to reduce burnout, improve productivity, and create a
           healthier workplace culture.
@@ -82,16 +83,16 @@ export default function CorporateSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {corporateServices.map((service) => (
             <div key={service.slug} className="corporate-card group">
-              <div className="h-full rounded-2xl border border-warm-white/10 bg-warm-white/5 p-8 transition-all duration-500 hover:bg-warm-white/10 hover:border-lavender/30">
-                <div className="w-14 h-14 rounded-xl bg-lavender/15 flex items-center justify-center text-lavender mb-6">
+              <div className="h-full rounded-2xl glass-panel-sage p-8 transition-all duration-500 hover:shadow-md hover:border-sage">
+                <div className="w-14 h-14 rounded-xl bg-sage/20 flex items-center justify-center text-sage-deep mb-6">
                   {corpIcons[service.icon] || corpIcons.building}
                 </div>
 
-                <h3 className="font-display text-xl font-light text-warm-white mb-3">
+                <h3 className="font-display text-xl font-medium text-charcoal mb-3">
                   {service.title}
                 </h3>
 
-                <p className="text-warm-white/60 leading-relaxed mb-6 text-sm">
+                <p className="text-charcoal-light leading-relaxed mb-6 text-sm">
                   {service.description}
                 </p>
 
@@ -99,10 +100,10 @@ export default function CorporateSection() {
                   {service.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-2 text-sm text-warm-white/50"
+                      className="flex items-start gap-2 text-sm text-charcoal-light"
                     >
                       <svg
-                        className="w-4 h-4 text-sage mt-0.5 flex-shrink-0"
+                        className="w-4 h-4 text-sage-deep mt-0.5 flex-shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

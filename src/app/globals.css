@@ -4,9 +4,8 @@
 
 @layer base {
   body {
-    text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.9),
-      1px 1px 0px rgba(0, 0, 0, 0.05),
-      2px 4px 8px rgba(107, 155, 99, 0.25);
+    /* Removed heavy 3D shadow per request */
+    text-shadow: none;
   }
 }
 
@@ -20,9 +19,11 @@
   --charcoal: #2D2D2D;
   --charcoal-light: #5A5A5A;
   --warm-white: #FFFFFF;
-  --glass-bg: rgba(255, 255, 255, 0.4);
-  --glass-border: rgba(168, 197, 160, 0.4);
-  --glass-shadow: 0 8px 32px rgba(107, 155, 99, 0.15);
+  --glass-bg: rgba(232, 213, 183, 0.35);
+  /* Warm Beige Tint */
+  --glass-border: rgba(232, 213, 183, 0.6);
+  --glass-shadow: 0 8px 32px rgba(139, 123, 184, 0.1);
+  /* Soft lavender shadow */
   --glass-blur: blur(12px);
   --text-shadow-soft: 0 1px 4px rgba(0, 0, 0, 0.05);
   --text-shadow-strong: 0 2px 12px rgba(0, 0, 0, 0.15);
@@ -112,19 +113,77 @@ body {
   }
 
   .glass-panel-light {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(45, 45, 45, 0.85);
+    /* Dark Charcoal base */
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(250, 247, 242, 0.15);
+    /* Subtle light border */
+    color: var(--cream);
   }
 
   .glass-panel-strong {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(35, 35, 35, 0.9);
+    /* Heavier Dark Charcoal */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 8px 40px rgba(107, 155, 99, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(250, 247, 242, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
     border-radius: 24px;
+    color: var(--cream);
+  }
+
+  .glass-separator-light {
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 20px 40px -20px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-separator-sage {
+    background: rgba(59, 91, 54, 0.15);
+    /* Dark Sage Hint */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 20px 40px -20px rgba(59, 91, 54, 0.2);
+  }
+
+  /* REWRITTEN: DARK TEXT BOX INTENTIONAL MINIMALISM */
+  .glass-panel-sage {
+    background: rgba(59, 91, 54, 0.85);
+    /* Dark Sage Deep */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(168, 197, 160, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    color: var(--cream);
+  }
+
+  .glass-separator-lavender {
+    background: rgba(74, 59, 105, 0.15);
+    /* Dark Lavender Hint */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 20px 40px -20px rgba(74, 59, 105, 0.2);
+  }
+
+  /* REWRITTEN: DARK TEXT BOX INTENTIONAL MINIMALISM */
+  .glass-panel-lavender {
+    background: rgba(74, 59, 105, 0.85);
+    /* Dark Lavender Deep */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(196, 181, 224, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    color: var(--cream);
   }
 
   .heading-on-glass {

@@ -37,7 +37,9 @@ export default function TherapistsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative section-padding">
+    <section ref={sectionRef} className="relative section-padding overflow-hidden text-charcoal">
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-4.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      <div className="absolute inset-0 z-0 glass-separator-lavender" />
       <div className="container-wide">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
           Our Team
@@ -51,18 +53,76 @@ export default function TherapistsSection() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {therapists.map((therapist) => (
-            <div
-              key={therapist.id}
-              className="therapist-card group perspective-card"
-            >
-              <div className="perspective-card-inner glass-panel mt-12 transition-all duration-500 hover:shadow-xl hover:shadow-lavender/10">
-                {/* Photo placeholder */}
-                <div className="relative h-64 mx-6 -mt-12 rounded-2xl bg-gradient-to-br from-lavender/20 via-sage/10 to-cream overflow-hidden shadow-lg border border-white/40">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full bg-lavender/20 flex items-center justify-center">
+          {therapists.map((therapist, index) => {
+            const isSage = index % 2 === 0;
+            const glassClasses = isSage ? "glass-panel-sage" : "glass-panel-lavender";
+            const imageBgClasses = isSage
+              ? "bg-gradient-to-br from-[#3B5B36]/50 via-white/10 to-[#3B5B36]/30"
+              : "bg-gradient-to-br from-[#4A3B69]/50 via-white/10 to-[#4A3B69]/30";
+
+            return (
+              <div
+                key={therapist.id}
+                className="therapist-card group perspective-card"
+              >
+                <div className={`perspective-card-inner mt-12 transition-all duration-500 overflow-hidden ${glassClasses}`}>
+
+                  {/* Photo placeholder container */}
+                  <div className={`relative h-64 mx-6 mt-6 rounded-2xl overflow-hidden shadow-inner border border-white/10 ${imageBgClasses}`}>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-24 h-24 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center shadow-sm">
+                        <svg
+                          className="w-12 h-12 text-cream/50"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1}
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Glassmorphism overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                      <p className="text-white text-sm italic leading-relaxed text-shadow-sm">
+                        &ldquo;{therapist.quote}&rdquo;
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Info Block */}
+                  <div className="p-6 relative z-10">
+                    <h3 className="font-display text-2xl font-normal text-cream tracking-tight">
+                      {therapist.name}
+                    </h3>
+                    <p className="text-sm text-cream/70 font-semibold mt-1 uppercase tracking-wider">
+                      {therapist.title}
+                    </p>
+                    <p className="text-sm text-cream/80 mt-2 line-clamp-2">
+                      {therapist.specialization}
+                    </p>
+
+                    {/* Credentials */}
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {therapist.credentials.map((cred) => (
+                        <span
+                          key={cred}
+                          className="text-xs px-3 py-1.5 rounded-full bg-black/20 border border-white/10 text-cream/90 font-medium"
+                        >
+                          {cred}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Experience Tracker */}
+                    <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-cream/60 uppercase tracking-widest border-t border-cream/10 pt-4">
                       <svg
-                        className="w-12 h-12 text-lavender-deep/40"
+                        className="w-4 h-4 text-cream/80"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -70,66 +130,17 @@ export default function TherapistsSection() {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                          strokeWidth={2}
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
                       </svg>
+                      {therapist.yearsExperience}+ Years Clinical
                     </div>
-                  </div>
-                  {/* Glassmorphism overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                    <p className="text-white/90 text-sm italic leading-relaxed">
-                      &ldquo;{therapist.quote}&rdquo;
-                    </p>
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-light text-charcoal">
-                    {therapist.name}
-                  </h3>
-                  <p className="text-sm text-lavender-deep font-medium mt-1">
-                    {therapist.title}
-                  </p>
-                  <p className="text-sm text-charcoal-light mt-1">
-                    {therapist.specialization}
-                  </p>
-
-                  {/* Credentials */}
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {therapist.credentials.map((cred) => (
-                      <span
-                        key={cred}
-                        className="text-xs px-2.5 py-1 rounded-full bg-sage/10 text-sage-deep"
-                      >
-                        {cred}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Experience */}
-                  <div className="mt-4 flex items-center gap-1.5 text-xs text-charcoal-light">
-                    <svg
-                      className="w-3.5 h-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {therapist.yearsExperience}+ years experience
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

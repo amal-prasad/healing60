@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { navItems, siteSettings } from "@/lib/data";
 
@@ -42,9 +43,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-display text-xl lg:text-2xl font-light tracking-tight text-charcoal"
+            className="relative flex items-center justify-start w-36 h-10 lg:w-48 lg:h-12"
           >
-            {siteSettings.clinicName}
+            <Image
+              src="/mobile-logo-hero.webp"
+              alt={siteSettings.clinicName}
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

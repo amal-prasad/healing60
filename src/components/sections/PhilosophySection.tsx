@@ -64,8 +64,12 @@ export default function PhilosophySection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center section-padding overflow-hidden"
+      className="relative min-h-screen flex items-center section-padding overflow-hidden text-charcoal"
     >
+      {/* Philosophy Background Image */}
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-2.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Section glass overlay */}
+      <div className="absolute inset-0 z-0 glass-separator-sage" />
       {/* Subtle particle dots background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {Array.from({ length: 30 }).map((_, i) => (
@@ -88,10 +92,10 @@ export default function PhilosophySection() {
         </p>
 
         {/* Headline with word-by-word reveal */}
-        <div ref={wordsRef} className="max-w-[720px] mx-auto glass-panel-strong p-10 lg:p-16 text-center">
+        <div ref={wordsRef} className="max-w-[720px] mx-auto glass-panel-sage p-10 lg:p-16 text-center">
           <h2
             ref={headlineRef}
-            className="font-display text-display-section text-charcoal leading-tight heading-on-glass"
+            className="font-display text-display-section text-cream leading-tight"
           >
             {[
               "Whatever",
@@ -112,29 +116,29 @@ export default function PhilosophySection() {
             ))}
           </h2>
 
-          <p className="philosophy-word mt-8 text-lg text-charcoal-light leading-relaxed max-w-2xl">
+          <p className="philosophy-word mt-8 text-lg text-cream/80 leading-relaxed max-w-2xl">
             Life can feel overwhelming — anxiety that won&apos;t quiet, relationships
             that feel stuck, or a sense of direction that&apos;s gone missing. At
             Healing60, we create a safe, non-judgmental space for you to explore
             what&apos;s weighing on you and find your way forward.
           </p>
-        </div>
 
-        {/* Interactive Concern Chips */}
-        <div className="concern-chips-container mt-12">
-          <p className="text-caption uppercase text-charcoal-light mb-4">
-            What brings you here?
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {concerns.map((concern) => (
-              <Link
-                key={concern.label}
-                href={`/services/${concern.slug}`}
-                className="concern-chip px-5 py-2.5 rounded-full border border-charcoal/10 bg-warm-white text-sm font-body text-charcoal-light hover:bg-lavender/20 hover:border-lavender hover:text-charcoal transition-all duration-300 hover:shadow-md hover:shadow-lavender/10"
-              >
-                {concern.label}
-              </Link>
-            ))}
+          {/* Interactive Concern Chips Inside Panel */}
+          <div className="concern-chips-container mt-12 border-t border-cream/20 pt-8">
+            <p className="text-caption uppercase text-cream/70 mb-4">
+              What brings you here?
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {concerns.map((concern) => (
+                <Link
+                  key={concern.label}
+                  href={`/services/${concern.slug}`}
+                  className="concern-chip px-5 py-2.5 rounded-full border border-cream/30 bg-cream/10 text-sm font-body text-cream/90 hover:bg-cream/20 hover:border-cream/50 transition-all duration-300 hover:shadow-md hover:shadow-black/20"
+                >
+                  {concern.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

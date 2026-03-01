@@ -66,6 +66,8 @@ export default function ServicesSection() {
 
   return (
     <section ref={sectionRef} className="relative section-padding overflow-hidden">
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-3.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      <div className="absolute inset-0 z-0 glass-separator-light" />
       <div className="container-wide relative z-10">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
           Services
@@ -80,76 +82,81 @@ export default function ServicesSection() {
 
         {/* Asymmetric Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/services/${service.slug}`}
-              className={`service-card group perspective-card ${service.featured
-                ? "md:col-span-2 lg:col-span-2 lg:row-span-2"
-                : ""
-                }`}
-            >
-              <div
-                className={`perspective-card-inner h-full glass-panel p-8 lg:p-10 transition-all duration-500 hover:shadow-xl hover:shadow-lavender/20 hover:bg-[rgba(255,255,255,0.28)] hover:backdrop-blur-[20px] ${service.featured ? "lg:p-12" : ""
+          {services.map((service, index) => {
+            const isSage = index % 2 === 0;
+            const glassClasses = isSage ? "glass-panel-sage" : "glass-panel-lavender";
+
+            return (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className={`service-card group perspective-card ${service.featured
+                  ? "md:col-span-2 lg:col-span-2 lg:row-span-2"
+                  : ""
                   }`}
               >
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-lavender/15 flex items-center justify-center text-lavender-deep mb-6 group-hover:bg-lavender/25 transition-colors duration-300">
-                  {serviceIcons[service.icon] || serviceIcons.mind}
-                </div>
-
-                <h3
-                  className={`font-display font-light text-charcoal mb-3 ${service.featured
-                    ? "text-2xl lg:text-3xl"
-                    : "text-xl lg:text-2xl"
+                <div
+                  className={`perspective-card-inner h-full p-8 lg:p-10 transition-all duration-500 ${glassClasses} ${service.featured ? "lg:p-12" : ""
                     }`}
                 >
-                  {service.title}
-                </h3>
-
-                <p className="text-charcoal-light leading-relaxed mb-6">
-                  {service.shortDescription}
-                </p>
-
-                {/* Symptoms preview for featured card */}
-                {service.featured && (
-                  <div className="hidden lg:block mb-6">
-                    <p className="text-caption uppercase text-charcoal-light mb-3">
-                      Common signs
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {service.symptoms.slice(0, 4).map((s) => (
-                        <span
-                          key={s}
-                          className="text-xs px-3 py-1.5 rounded-full bg-sage/10 text-sage-deep"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-cream mb-6 group-hover:bg-white/20 transition-colors duration-300">
+                    {serviceIcons[service.icon] || serviceIcons.mind}
                   </div>
-                )}
 
-                {/* Arrow */}
-                <div className="flex items-center gap-2 text-lavender-deep text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                  Learn more
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <h3
+                    className={`font-display font-light text-cream mb-3 ${service.featured
+                      ? "text-2xl lg:text-3xl"
+                      : "text-xl lg:text-2xl"
+                      }`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
+                    {service.title}
+                  </h3>
+
+                  <p className="text-cream/80 leading-relaxed mb-6">
+                    {service.shortDescription}
+                  </p>
+
+                  {/* Symptoms preview for featured card */}
+                  {service.featured && (
+                    <div className="hidden lg:block mb-6 pt-6 border-t border-cream/20">
+                      <p className="text-caption uppercase text-cream/70 mb-3">
+                        Common signs
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {service.symptoms.slice(0, 4).map((s) => (
+                          <span
+                            key={s}
+                            className="text-xs px-3 py-1.5 rounded-full bg-black/20 text-cream/90"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Arrow */}
+                  <div className="flex items-center gap-2 text-cream/90 text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                    Learn more
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

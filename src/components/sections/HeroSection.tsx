@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteSettings } from "@/lib/data";
-import Image from "next/image";
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -14,65 +13,15 @@ export default function HeroSection() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* 1. Deepest Layer: The Person / Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-bg.png"
-          alt="Healing60 Patient/Therapist"
-          fill
-          className="object-cover object-center z-0 lg:object-contain"
-          priority
-        />
-        {/* Brightening Wash - reduced for more presence */}
-        <div className="absolute inset-0 bg-white/30 z-0" />
-
-        {/* Solid Edge Masks for White Left/Right - Blocking all background leaves */}
-        <div
-          className="absolute inset-0 z-[5] pointer-events-none"
-          style={{
-            background: "linear-gradient(to right, #ffffff 0%, #ffffff 12%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, #ffffff 88%, #ffffff 100%)"
-          }}
-        />
-      </div>
-
-      {/* 2. Middle Layer: Moving Organic Blobs (Between Person and Glass) */}
-      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-        {/* Blob traversing behind glass */}
-        <motion.div
-          animate={{
-            x: ["-10vw", "20vw", "-10vw"],
-            y: ["-5vh", "15vh", "-5vh"],
-            scale: [1, 1.2, 0.9],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[20%] right-[30%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-lavender/40 rounded-full mix-blend-normal blur-[80px] z-0"
-        />
-        <motion.div
-          animate={{
-            x: ["10vw", "-20vw", "10vw"],
-            y: ["10vh", "-10vh", "10vh"],
-            scale: [0.9, 1.4, 1],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-[20%] left-[20%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-sage/40 rounded-full mix-blend-normal blur-[60px] z-0"
-        />
-      </div>
-
-      {/* 3. Clean Glass Layer */}
-      <div className="absolute inset-0 z-20 pointer-events-none">
-        {/* High opacity, clean glass effect (less aggressive blur, stronger white tint) */}
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-md" />
-        {/* Subtle glossy sheen */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
+      {/* Primary Hero Background Image */}
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-1.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      {/* Light glass overlay over image */}
+      <div className="absolute inset-0 z-0 bg-white/20 backdrop-blur-[16px]" />
+      {/* Logo Background Layer (Behind Glass Effect/Text) */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none z-10">
+        <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
+          <img src="/LOGO.png" alt="Healing60 Logo Watermark" className="w-full h-full object-contain filter grayscale" />
+        </div>
       </div>
 
       {/* 4. Top Content Layer (Text & CTA) */}
@@ -84,7 +33,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center max-w-4xl"
+          className="flex flex-col items-center text-center max-w-4xl glass-panel-strong px-6 py-12 md:p-16 border-t border-cream/20"
         >
           {/* A secondary, softer text backing just to ensure absolute readability if needed, though the 60px blur does most work */}
 
@@ -92,7 +41,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-section-index uppercase text-charcoal font-semibold tracking-widest mb-6 relative z-10"
+            className="text-section-index uppercase text-cream/80 font-semibold tracking-widest mb-6 relative z-10"
           >
             Psychology & Counselling in Indore
           </motion.p>
@@ -101,7 +50,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-display text-display-hero text-charcoal text-balance heading-on-glass relative z-10 drop-shadow-sm"
+            className="font-display text-display-hero text-cream text-balance relative z-10 drop-shadow-sm"
           >
             A space where
             <br />
@@ -112,7 +61,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-6 text-lg lg:text-xl font-medium text-charcoal-light max-w-2xl text-center leading-relaxed relative z-10"
+            className="mt-6 text-lg lg:text-xl font-medium text-cream/70 max-w-2xl text-center leading-relaxed relative z-10"
           >
             Professional, compassionate therapy for individuals, couples, and
             families. Your journey to well-being starts here.
@@ -122,13 +71,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="mt-12 flex flex-col sm:flex-row gap-6 justify-center relative z-10"
+            className="mt-12 flex flex-col sm:flex-row gap-6 justify-center relative z-10 w-full md:w-auto"
           >
             <Link
               href={siteSettings.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-lavender text-charcoal font-medium text-lg hover:bg-lavender-deep hover:text-white transition-all duration-500 shadow-xl shadow-lavender/30 overflow-hidden"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-sage text-charcoal font-medium text-lg hover:bg-sage-deep hover:text-white transition-all duration-500 shadow-xl shadow-black/30 overflow-hidden w-full sm:w-auto"
             >
               <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -138,7 +87,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/services"
-              className="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-charcoal/20 bg-white/10 backdrop-blur-sm text-charcoal font-medium text-lg hover:bg-white/40 transition-all duration-300 shadow-sm"
+              className="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-cream/20 bg-black/20 backdrop-blur-sm text-cream font-medium text-lg hover:bg-black/40 transition-all duration-300 shadow-sm w-full sm:w-auto"
             >
               Explore Services
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

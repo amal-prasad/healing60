@@ -80,6 +80,8 @@ export default function TestimonialsSection() {
 
   return (
     <section ref={sectionRef} className="relative section-padding overflow-hidden">
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-1.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      <div className="absolute inset-0 z-0 glass-separator-light" />
       <div className="container-wide">
         <p className="text-section-index uppercase text-charcoal-light mb-4">
           Testimonials
@@ -92,37 +94,37 @@ export default function TestimonialsSection() {
         </p>
 
         {/* Stats Bar */}
-        <div className="stats-bar grid grid-cols-3 gap-6 mb-16 p-8 glass-panel">
+        <div className="stats-bar grid grid-cols-3 gap-6 mb-16 p-8 glass-panel-sage">
           <div className="text-center">
-            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal heading-on-glass">
+            <div className="font-display text-4xl lg:text-5xl font-light text-cream">
               <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.livesTouched}>
                 0
               </span>
-              <span className="text-lavender-deep">+</span>
+              <span className="text-cream/50">+</span>
             </div>
-            <p className="text-caption uppercase text-charcoal-light mt-2">
+            <p className="text-caption uppercase text-cream/70 mt-2">
               Lives Touched
             </p>
           </div>
-          <div className="text-center border-x border-white/20">
-            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal heading-on-glass">
+          <div className="text-center border-x border-cream/20">
+            <div className="font-display text-4xl lg:text-5xl font-light text-cream">
               <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.rating}>
                 0
               </span>
-              <span className="text-sage-deep">&#9733;</span>
+              <span className="text-cream/50">&#9733;</span>
             </div>
-            <p className="text-caption uppercase text-charcoal-light mt-2">
+            <p className="text-caption uppercase text-cream/70 mt-2">
               Google Rating
             </p>
           </div>
           <div className="text-center">
-            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal heading-on-glass">
+            <div className="font-display text-4xl lg:text-5xl font-light text-cream">
               <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.yearsExperience}>
                 0
               </span>
-              <span className="text-lavender-deep">+</span>
+              <span className="text-cream/50">+</span>
             </div>
-            <p className="text-caption uppercase text-charcoal-light mt-2">
+            <p className="text-caption uppercase text-cream/70 mt-2">
               Years Experience
             </p>
           </div>
@@ -133,27 +135,25 @@ export default function TestimonialsSection() {
           ref={scrollContainerRef}
           className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 snap-x snap-mandatory scrollbar-hide"
         >
-          {testimonials.map((t) => (
-            <div
-              key={t.id}
-              className="testimonial-card flex-shrink-0 w-[85vw] sm:w-[70vw] lg:w-auto snap-center"
-            >
-              <div className="h-full glass-panel bg-[rgba(255,255,255,0.22)] p-8 transition-all duration-300 hover:shadow-lg hover:shadow-lavender/10">
-                <StarRating rating={t.rating} />
-                <p className="mt-4 text-charcoal leading-relaxed text-[0.95rem]">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-lavender/15 flex items-center justify-center">
-                    <span className="text-sm font-medium text-lavender-deep">
-                      {t.name.charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-charcoal">
+          {testimonials.map((t, index) => {
+            const isSage = index % 2 === 0;
+            const glassClasses = isSage ? "glass-panel-sage" : "glass-panel-lavender";
+
+            return (
+              <div
+                key={t.id}
+                className="testimonial-card flex-shrink-0 w-[85vw] sm:w-[70vw] lg:w-auto snap-center"
+              >
+                <div className={`h-full p-8 transition-all duration-300 ${glassClasses}`}>
+                  <StarRating rating={t.rating} />
+                  <p className="mt-4 text-cream/90 leading-relaxed text-[0.95rem]">
+                    &ldquo;{t.text}&rdquo;
+                  </p>
+                  <div className="mt-6 flex flex-col gap-1 border-t border-cream/20 pt-6">
+                    <p className="text-sm font-medium text-cream">
                       {t.name}
                     </p>
-                    <p className="text-xs text-charcoal-light">
+                    <p className="text-xs text-cream/60">
                       {new Date(t.date).toLocaleDateString("en-IN", {
                         month: "long",
                         year: "numeric",
@@ -162,8 +162,8 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
