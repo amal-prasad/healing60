@@ -49,6 +49,8 @@ export const metadata: Metadata = {
   },
 };
 
+import InitialLoader from "@/components/layout/InitialLoader";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -67,6 +69,7 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${inter.variable} font-body antialiased text-charcoal`}
       >
+        <InitialLoader />
         <GlobalBackground />
 
         <Bubbles />
