@@ -40,8 +40,6 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overscroll-behavior: none;
-  background-color: var(--cream);
 }
 
 body {
@@ -49,7 +47,6 @@ body {
   background: transparent;
   font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
-  overscroll-behavior: none;
 }
 
 @keyframes gradient-shift {
