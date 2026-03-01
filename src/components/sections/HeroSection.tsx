@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* 1. Deepest Layer: The Person / Background Image */}
       <div className="absolute inset-0 z-0">
