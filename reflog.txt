@@ -1,0 +1,15 @@
+﻿35dbc59 HEAD@{0}: reset: moving to 35dbc59
+f2c64d3 HEAD@{1}: reset: moving to f2c64d3
+dbedd35 HEAD@{2}: commit: Update overscroll behavior and css structure
+ffa0f0c HEAD@{3}: commit: Fix scrolling white bar on mobile using 100dvh and overscroll-behavior
+cdbe7a8 HEAD@{4}: commit: Fix mobile scroll flash and change 100vh to 100dvh
+35dbc59 HEAD@{5}: commit: style: restore white background to hero section
+97df0f3 HEAD@{6}: commit: fix: resolve mobile menu depth conflict and enhance background visibility
+bbf4766 HEAD@{7}: commit: feat: add calming rising bubbles and refine mobile visual depth
+a55b721 HEAD@{8}: commit: chore: setup next.js export and config
+4803840 HEAD@{9}: commit: feat: Add organic bubbles and leaves background
+f2c64d3 HEAD@{10}: commit: feat: add R3F 3D hero scene, WebGL detection, utility pages, and config updates
+01f9fb5 HEAD@{11}: commit: docs: add planning files (task.md, implementation_plan.md, Suggestion.txt)
+9e1400f HEAD@{12}: Branch: renamed refs/heads/master to refs/heads/main
+9e1400f HEAD@{14}: commit: feat: complete Healing60 website redesign - premium scroll-driven experience
+48da5e8 HEAD@{15}: commit (initial): Initial commit from Create Next App

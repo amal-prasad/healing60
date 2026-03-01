@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden"
     >
       {/* 1. Deepest Layer: The Person / Background Image */}
       <div className="absolute inset-0 z-0">
@@ -77,7 +77,7 @@ export default function HeroSection() {
 
       {/* 4. Top Content Layer (Text & CTA) */}
       <div
-        className="relative z-40 container-wide pt-20 flex flex-col items-center justify-center w-full min-h-screen"
+        className="relative z-40 container-wide pt-20 flex flex-col items-center justify-center w-full min-h-[100dvh]"
         style={{ textShadow: 'none' }}
       >
         <motion.div

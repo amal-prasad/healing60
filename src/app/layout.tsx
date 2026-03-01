@@ -67,7 +67,7 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${inter.variable} font-body antialiased text-charcoal`}
       >
-        <div className="fixed inset-0 -z-50 w-full h-full bg-[#FAF7F2] overflow-hidden">
+        <div className="fixed inset-0 -z-50 bg-[#FAF7F2] overflow-hidden">
           <Image
             src="/leaves.png"
             alt="Nature Background"
