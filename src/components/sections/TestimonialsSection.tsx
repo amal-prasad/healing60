@@ -96,35 +96,35 @@ export default function TestimonialsSection() {
         {/* Stats Bar */}
         <div className="stats-bar grid grid-cols-3 gap-6 mb-16 p-8 glass-panel-sage">
           <div className="text-center">
-            <div className="font-display text-4xl lg:text-5xl font-light text-cream">
+            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
               <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.livesTouched}>
                 0
               </span>
-              <span className="text-cream/50">+</span>
+              <span className="text-charcoal/50">+</span>
             </div>
-            <p className="text-caption uppercase text-cream/70 mt-2">
+            <p className="text-caption uppercase text-charcoal/70 mt-2">
               Lives Touched
             </p>
           </div>
-          <div className="text-center border-x border-cream/20">
-            <div className="font-display text-4xl lg:text-5xl font-light text-cream">
+          <div className="text-center border-x border-charcoal/10">
+            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
               <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.rating}>
                 0
               </span>
-              <span className="text-cream/50">&#9733;</span>
+              <span className="text-charcoal/50">&#9733;</span>
             </div>
-            <p className="text-caption uppercase text-cream/70 mt-2">
+            <p className="text-caption uppercase text-charcoal/70 mt-2">
               Google Rating
             </p>
           </div>
           <div className="text-center">
-            <div className="font-display text-4xl lg:text-5xl font-light text-cream">
+            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
               <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.yearsExperience}>
                 0
               </span>
-              <span className="text-cream/50">+</span>
+              <span className="text-charcoal/50">+</span>
             </div>
-            <p className="text-caption uppercase text-cream/70 mt-2">
+            <p className="text-caption uppercase text-charcoal/70 mt-2">
               Years Experience
             </p>
           </div>
@@ -146,14 +146,14 @@ export default function TestimonialsSection() {
               >
                 <div className={`h-full p-8 transition-all duration-300 ${glassClasses}`}>
                   <StarRating rating={t.rating} />
-                  <p className="mt-4 text-cream/90 leading-relaxed text-[0.95rem]">
+                  <p className="mt-4 text-charcoal leading-relaxed text-[0.95rem]">
                     &ldquo;{t.text}&rdquo;
                   </p>
-                  <div className="mt-6 flex flex-col gap-1 border-t border-cream/20 pt-6">
-                    <p className="text-sm font-medium text-cream">
+                  <div className="mt-6 flex flex-col gap-1 border-t border-charcoal/10 pt-6">
+                    <p className="text-sm font-semibold text-charcoal">
                       {t.name}
                     </p>
-                    <p className="text-xs text-cream/60">
+                    <p className="text-xs text-charcoal-light">
                       {new Date(t.date).toLocaleDateString("en-IN", {
                         month: "long",
                         year: "numeric",

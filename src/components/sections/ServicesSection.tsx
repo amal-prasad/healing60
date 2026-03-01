@@ -100,12 +100,12 @@ export default function ServicesSection() {
                     }`}
                 >
                   {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-cream mb-6 group-hover:bg-white/20 transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-charcoal/5 flex items-center justify-center text-charcoal mb-6 group-hover:bg-charcoal/10 transition-colors duration-300">
                     {serviceIcons[service.icon] || serviceIcons.mind}
                   </div>
 
                   <h3
-                    className={`font-display font-light text-cream mb-3 ${service.featured
+                    className={`font-display font-medium text-charcoal mb-3 ${service.featured
                       ? "text-2xl lg:text-3xl"
                       : "text-xl lg:text-2xl"
                       }`}
@@ -113,21 +113,21 @@ export default function ServicesSection() {
                     {service.title}
                   </h3>
 
-                  <p className="text-cream/80 leading-relaxed mb-6">
+                  <p className="text-charcoal-light leading-relaxed mb-6">
                     {service.shortDescription}
                   </p>
 
                   {/* Symptoms preview for featured card */}
                   {service.featured && (
-                    <div className="hidden lg:block mb-6 pt-6 border-t border-cream/20">
-                      <p className="text-caption uppercase text-cream/70 mb-3">
+                    <div className="hidden lg:block mb-6 pt-6 border-t border-charcoal/10">
+                      <p className="text-caption uppercase text-charcoal/70 mb-3">
                         Common signs
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {service.symptoms.slice(0, 4).map((s) => (
                           <span
                             key={s}
-                            className="text-xs px-3 py-1.5 rounded-full bg-black/20 text-cream/90"
+                            className="text-xs px-3 py-1.5 rounded-full bg-charcoal/10 text-charcoal font-medium"
                           >
                             {s}
                           </span>
@@ -137,7 +137,7 @@ export default function ServicesSection() {
                   )}
 
                   {/* Arrow */}
-                  <div className="flex items-center gap-2 text-cream/90 text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                  <div className="flex items-center gap-2 text-charcoal text-sm font-medium group-hover:gap-3 transition-all duration-300">
                     Learn more
                     <svg
                       className="w-4 h-4"

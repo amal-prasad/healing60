@@ -95,7 +95,7 @@ export default function PhilosophySection() {
         <div ref={wordsRef} className="max-w-[720px] mx-auto glass-panel-sage p-10 lg:p-16 text-center">
           <h2
             ref={headlineRef}
-            className="font-display text-display-section text-cream leading-tight"
+            className="font-display text-display-section text-charcoal leading-tight drop-shadow-sm"
           >
             {[
               "Whatever",
@@ -116,7 +116,7 @@ export default function PhilosophySection() {
             ))}
           </h2>
 
-          <p className="philosophy-word mt-8 text-lg text-cream/80 leading-relaxed max-w-2xl">
+          <p className="philosophy-word mt-8 text-lg text-charcoal-light leading-relaxed max-w-2xl">
             Life can feel overwhelming — anxiety that won&apos;t quiet, relationships
             that feel stuck, or a sense of direction that&apos;s gone missing. At
             Healing60, we create a safe, non-judgmental space for you to explore
@@ -124,8 +124,8 @@ export default function PhilosophySection() {
           </p>
 
           {/* Interactive Concern Chips Inside Panel */}
-          <div className="concern-chips-container mt-12 border-t border-cream/20 pt-8">
-            <p className="text-caption uppercase text-cream/70 mb-4">
+          <div className="concern-chips-container mt-12 border-t border-charcoal/10 pt-8">
+            <p className="text-caption uppercase text-charcoal/70 mb-4">
               What brings you here?
             </p>
             <div className="flex flex-wrap justify-center gap-3">
@@ -133,7 +133,7 @@ export default function PhilosophySection() {
                 <Link
                   key={concern.label}
                   href={`/services/${concern.slug}`}
-                  className="concern-chip px-5 py-2.5 rounded-full border border-cream/30 bg-cream/10 text-sm font-body text-cream/90 hover:bg-cream/20 hover:border-cream/50 transition-all duration-300 hover:shadow-md hover:shadow-black/20"
+                  className="concern-chip px-5 py-2.5 rounded-full border border-charcoal/20 bg-charcoal/5 text-sm font-body text-charcoal/90 hover:bg-charcoal/10 hover:border-charcoal/30 transition-all duration-300 hover:shadow-md hover:shadow-black/10"
                 >
                   {concern.label}
                 </Link>

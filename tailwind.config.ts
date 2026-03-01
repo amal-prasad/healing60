@@ -19,8 +19,8 @@ const config: Config = {
           deep: "#6B9B63",
         },
         charcoal: {
-          DEFAULT: "#2D2D2D",
-          light: "#5A5A5A",
+          DEFAULT: "#2D3B35",
+          light: "#6B7280",
         },
         "warm-white": "#FFFFFF",
         glass: "rgba(255,255,255,0.12)",

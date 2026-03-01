@@ -16,14 +16,6 @@ export default function HeroSection() {
       {/* Primary Hero Background Image */}
       <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('/bg-image-1.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
       {/* Light glass overlay over image */}
-      <div className="absolute inset-0 z-0 bg-white/20 backdrop-blur-[16px]" />
-      {/* Logo Background Layer (Behind Glass Effect/Text) */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none z-10">
-        <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
-          <img src="/LOGO.png" alt="Healing60 Logo Watermark" className="w-full h-full object-contain filter grayscale" />
-        </div>
-      </div>
-
       {/* 4. Top Content Layer (Text & CTA) */}
       <div
         className="relative z-40 container-wide pt-20 flex flex-col items-center justify-center w-full min-h-screen"
@@ -33,7 +25,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center max-w-4xl glass-panel-strong px-6 py-12 md:p-16 border-t border-cream/20"
+          className="flex flex-col items-center text-center max-w-4xl"
         >
           {/* A secondary, softer text backing just to ensure absolute readability if needed, though the 60px blur does most work */}
 
@@ -41,7 +33,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-section-index uppercase text-cream/80 font-semibold tracking-widest mb-6 relative z-10"
+            className="text-section-index uppercase text-charcoal/80 font-semibold tracking-widest mb-6 relative z-10"
+            style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}
           >
             Psychology & Counselling in Indore
           </motion.p>
@@ -50,18 +43,20 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-display text-display-hero text-cream text-balance relative z-10 drop-shadow-sm"
+            className="font-display text-display-hero text-charcoal text-balance relative z-10"
+            style={{ textShadow: '0 4px 20px rgba(255,255,255,0.6)' }}
           >
             A space where
             <br />
-            <span className="text-gradient-animated">healing begins.</span>
+            <span className="text-gradient-animated" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}>healing begins.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-6 text-lg lg:text-xl font-medium text-cream/70 max-w-2xl text-center leading-relaxed relative z-10"
+            className="mt-6 text-lg lg:text-xl font-medium text-charcoal/80 max-w-2xl text-center leading-relaxed relative z-10"
+            style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}
           >
             Professional, compassionate therapy for individuals, couples, and
             families. Your journey to well-being starts here.
@@ -87,7 +82,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/services"
-              className="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-cream/20 bg-black/20 backdrop-blur-sm text-cream font-medium text-lg hover:bg-black/40 transition-all duration-300 shadow-sm w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-charcoal/20 bg-white/40 backdrop-blur-sm text-charcoal font-medium text-lg hover:bg-white/60 transition-all duration-300 shadow-sm w-full sm:w-auto"
             >
               Explore Services
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

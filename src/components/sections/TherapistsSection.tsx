@@ -89,7 +89,7 @@ export default function TherapistsSection() {
                     {/* Glassmorphism overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                      <p className="text-white text-sm italic leading-relaxed text-shadow-sm">
+                      <p className="text-white text-sm italic leading-relaxed text-shadow-strong">
                         &ldquo;{therapist.quote}&rdquo;
                       </p>
                     </div>
@@ -97,13 +97,13 @@ export default function TherapistsSection() {
 
                   {/* Info Block */}
                   <div className="p-6 relative z-10">
-                    <h3 className="font-display text-2xl font-normal text-cream tracking-tight">
+                    <h3 className="font-display text-2xl font-medium text-charcoal tracking-tight">
                       {therapist.name}
                     </h3>
-                    <p className="text-sm text-cream/70 font-semibold mt-1 uppercase tracking-wider">
+                    <p className="text-sm text-charcoal/70 font-semibold mt-1 uppercase tracking-wider">
                       {therapist.title}
                     </p>
-                    <p className="text-sm text-cream/80 mt-2 line-clamp-2">
+                    <p className="text-sm text-charcoal-light mt-2 line-clamp-2">
                       {therapist.specialization}
                     </p>
 
@@ -112,7 +112,7 @@ export default function TherapistsSection() {
                       {therapist.credentials.map((cred) => (
                         <span
                           key={cred}
-                          className="text-xs px-3 py-1.5 rounded-full bg-black/20 border border-white/10 text-cream/90 font-medium"
+                          className="text-xs px-3 py-1.5 rounded-full bg-charcoal/10 border border-charcoal/10 text-charcoal font-medium"
                         >
                           {cred}
                         </span>
@@ -120,9 +120,9 @@ export default function TherapistsSection() {
                     </div>
 
                     {/* Experience Tracker */}
-                    <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-cream/60 uppercase tracking-widest border-t border-cream/10 pt-4">
+                    <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-charcoal/60 uppercase tracking-widest border-t border-charcoal/10 pt-4">
                       <svg
-                        className="w-4 h-4 text-cream/80"
+                        className="w-4 h-4 text-charcoal/80"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
