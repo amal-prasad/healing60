@@ -1,11 +1,11 @@
 import React from "react";
 
 export default function InitialLoader() {
-    return (
-        <>
-            <style
-                dangerouslySetInnerHTML={{
-                    __html: `
+  return (
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
             #initial-loader {
               position: fixed;
               top: 0;
@@ -74,15 +74,15 @@ export default function InitialLoader() {
               100% { transform: translateX(350%); }
             }
           `,
-                }}
-            />
-            {/* 
+        }}
+      />
+      {/* 
         Using dangerouslySetInnerHTML for the structure prevents hydration errors 
         where the client script modifies the DOM before React hydrates.
       */}
-            <div
-                dangerouslySetInnerHTML={{
-                    __html: `
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `
             <div id="initial-loader">
               <img src="/LOGO.png" alt="Healing60 Logo" class="loader-logo" />
               <div class="loader-indicator">
@@ -93,28 +93,43 @@ export default function InitialLoader() {
               (function() {
                 var loader = document.getElementById('initial-loader');
                 if (!loader) return;
+                
+                var startTime = Date.now();
+                var minDuration = 3000;
                 var hasFired = false;
+                
                 var hideLoader = function() {
                   if (hasFired) return;
+                  
+                  var elapsedTime = Date.now() - startTime;
+                  var timeRemaining = minDuration - elapsedTime;
+                  
+                  if (timeRemaining > 0) {
+                    setTimeout(executeHide, timeRemaining);
+                  } else {
+                    executeHide();
+                  }
+                };
+
+                var executeHide = function() {
+                  if (hasFired) return;
                   hasFired = true;
-                  // Add class to start CSS transition
                   loader.classList.add('hidden');
                 };
                 
                 if (document.readyState === 'complete') {
-                  // Fallback if already loaded
-                  setTimeout(hideLoader, 100);
+                  hideLoader();
                 } else {
                   window.addEventListener('load', hideLoader);
                 }
                 
-                // Fallback timeout: 4000ms max
-                setTimeout(hideLoader, 4000);
+                // Fallback timeout: 6000ms max (3s min + 3s buffer)
+                setTimeout(executeHide, 6000);
               })();
             </script>
           `,
-                }}
-            />
-        </>
-    );
+        }}
+      />
+    </>
+  );
 }
