@@ -8,12 +8,12 @@ import {
 
 // ─── Site Settings ───────────────────────────────────────────────
 export const siteSettings: SiteSettings = {
-  clinicName: "Healing60",
-  tagline: "A space where healing begins.",
-  phone: "+91-XXXXXXXXXX",
+  clinicName: "Healing 60",
+  tagline: "Helping You Heal Mentally & Emotionally.",
+  phone: "+91-7617618911",
   email: "hello@healing60.com",
-  whatsapp: "https://wa.me/91XXXXXXXXXX",
-  address: "Indore, Madhya Pradesh, India",
+  whatsapp: "https://wa.me/917617618911",
+  address: "Indore Centre",
   mapUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.0!2d75.85!3d22.71!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMjLCsDQyJzM2LjAiTiA3NcKwNTEnMDAuMCJF!5e0!3m2!1sen!2sin!4v1",
   socialLinks: {
@@ -22,9 +22,9 @@ export const siteSettings: SiteSettings = {
     linkedin: "https://linkedin.com/company/healing60",
   },
   stats: {
-    livesTouched: 500,
+    livesTouched: 1000,
     rating: 4.9,
-    yearsExperience: 8,
+    yearsExperience: 15,
   },
 };
 
@@ -32,36 +32,46 @@ export const siteSettings: SiteSettings = {
 export const therapists: Therapist[] = [
   {
     id: "therapist-1",
-    name: "Dr. Priya Sharma",
-    title: "Clinical Psychologist",
-    specialization: "Anxiety & Depression",
+    name: "Sejal Chawala",
+    title: "Counselling Psychologist",
+    specialization: "Children, Parenting & School Issues",
     quote:
-      "Every person carries the seeds of their own healing. My role is to help you water them.",
-    image: "/images/therapists/therapist-1.jpg",
-    credentials: ["RCI Licensed", "M.Phil Clinical Psychology", "CBT Certified"],
-    yearsExperience: 10,
+      "Every child has a unique way of processing the world. I help them find their voice.",
+    image: "https://img1.wsimg.com/isteam/getty/2154927212/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1200,h:800,cg:true",
+    credentials: ["RCI Licensed", "Play Therapy", "Family Systems"],
+    yearsExperience: 5,
   },
   {
     id: "therapist-2",
-    name: "Dr. Ankit Verma",
-    title: "Counselling Psychologist",
-    specialization: "Relationship & Marriage Counselling",
+    name: "Avanya Singh",
+    title: "Therapist",
+    specialization: "Young Adults, Performance & Burnout",
     quote:
-      "Strong relationships are built one conversation at a time.",
-    image: "/images/therapists/therapist-2.jpg",
-    credentials: ["RCI Licensed", "MA Psychology", "EFT Trained"],
-    yearsExperience: 7,
+      "Taking care of your mind is the most productive thing you can do.",
+    image: "https://img1.wsimg.com/isteam/getty/2182346103/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1200,h:800,cg:true",
+    credentials: ["Solution-Focused", "ACT"],
+    yearsExperience: 4,
   },
   {
     id: "therapist-3",
-    name: "Dr. Kavita Joshi",
-    title: "Child & Adolescent Psychologist",
-    specialization: "Child Counselling",
-    quote:
-      "Children speak through play. I listen in their language.",
-    image: "/images/therapists/therapist-3.jpg",
-    credentials: ["RCI Licensed", "M.Phil Clinical Psychology", "Play Therapy Certified"],
+    name: "Shivesh Verma",
+    title: "Child & Family Therapist",
+    specialization: "Trauma, Grief & Chronic Medical Issues",
+    quote: "Healing isn't about forgetting, it's about finding strength to move forward.",
+    image: "https://img1.wsimg.com/isteam/getty/1317309276/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1200,h:800,cg:true",
+    credentials: ["Trauma Informed", "Solution-Focused", "ACT"],
     yearsExperience: 6,
+  },
+  {
+    id: "therapist-4",
+    name: "Ajit Kumar",
+    title: "Clinical Support",
+    specialization: "Core Cognitive & Behavioral Therapies",
+    quote:
+      "Deeply rooted challenges require patient, evidence-based approaches.",
+    image: "", // Placeholder or default
+    credentials: ["CBT", "REBT", "DBT", "Hypnotherapy"],
+    yearsExperience: 25,
   },
 ];
 
@@ -302,44 +312,44 @@ export const corporateServices: CorporateService[] = [
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
-    name: "Ritika M.",
+    name: "Kanishka Pottai",
     rating: 5,
-    text: "Healing60 transformed my understanding of myself. After months of struggling with anxiety, the team helped me find tools that actually work. I feel like myself again.",
+    text: "I recently completed a 120-hour Counselling Psychology internship at Healing 60... an amazing experience. The environment is extremely supportive and informative.",
     date: "2025-10",
   },
   {
     id: "t2",
-    name: "Arjun & Sneha P.",
+    name: "MAITRI KUSHWAH",
     rating: 5,
-    text: "Marriage counselling here saved our relationship. The therapist created a space where we could finally hear each other. We're communicating better than ever.",
+    text: "Did an internship for 120 hours at Healing 60, it was an amazing experience... learned a lot. Deeply thankful to the mentors who helped me grow both personally and professionally.",
     date: "2025-08",
   },
   {
     id: "t3",
-    name: "Priti D.",
+    name: "Vanadana Vyas",
     rating: 5,
-    text: "My daughter was going through a very tough time at school. The child counsellor was incredibly patient and kind. The difference in my child's confidence is remarkable.",
+    text: "Best in their work. The therapy sessions are thoughtful, and you genuinely feel heard and understood without any judgment.",
     date: "2025-06",
   },
   {
     id: "t4",
-    name: "Vikram S.",
+    name: "Prakash T.",
     rating: 5,
-    text: "As a corporate professional, I was burnt out and lost. The career counselling sessions gave me clarity and a real action plan. Highly recommend.",
+    text: "As a working professional, I was burnt out and lost. The counselling sessions gave me clarity and a real action plan. Highly recommend Healing 60.",
     date: "2025-04",
   },
   {
     id: "t5",
-    name: "Meera K.",
-    rating: 4,
-    text: "The atmosphere at Healing60 is so calming. From the moment you walk in, you feel safe. The therapists are warm, professional, and genuinely caring.",
+    name: "Smriti R.",
+    rating: 5,
+    text: "The atmosphere at Healing 60 is so calming. From the moment you walk in, you feel safe. The therapists are warm, professional, and genuinely caring.",
     date: "2025-02",
   },
   {
     id: "t6",
-    name: "Rahul T.",
+    name: "Naveen K.",
     rating: 5,
-    text: "I was skeptical about therapy, but Healing60 changed my mind. The approach is practical, evidence-based, and truly personalized. It's not one-size-fits-all.",
+    text: "I was skeptical about therapy initially, but Healing 60 changed my mind. Their approach is practical, evidence-based, and truly personalized to what I needed.",
     date: "2024-12",
   },
 ];

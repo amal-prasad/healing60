@@ -10,14 +10,26 @@ export default function HeroSection() {
 
   useEffect(() => {
     // If loader completed before React hydrated, or if arriving via client-side routing
-    // @ts-ignore
+    // @ts-expect-error Window extending
     if (typeof window !== "undefined" && window.__HEALING60_LOADER_DONE) {
       setIsLocked(false);
+      // Refresh ScrollTrigger to ensure sections below are positioned correctly
+      setTimeout(() => {
+        import("gsap/ScrollTrigger").then((mod) => {
+          mod.ScrollTrigger.refresh();
+        });
+      }, 1500);
       return;
     }
 
     const handleRelease = () => {
       setIsLocked(false);
+      // Wait for the hero animations to complete, then refresh ScrollTrigger
+      setTimeout(() => {
+        import("gsap/ScrollTrigger").then((mod) => {
+          mod.ScrollTrigger.refresh();
+        });
+      }, 1500); // Hero animations take around 1.5s
     };
 
     // Listen for the custom event dispatched by InitialLoader when fade-out begins
@@ -63,17 +75,16 @@ export default function HeroSection() {
             className="hero-animated hero-anim-up font-display text-display-hero text-charcoal text-balance relative z-10"
             style={{ textShadow: '0 4px 20px rgba(255,255,255,0.6)', "--hero-delay": "0.4s", "--hero-duration": "0.8s", "--hero-y": "30px" } as React.CSSProperties}
           >
-            A space where
+            Psychologist in Indore.
             <br />
-            <span className="text-gradient-animated" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}>healing begins.</span>
+            <span className="text-gradient-animated" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)' }}>Helping You Heal Mentally & Emotionally.</span>
           </h1>
 
           <p
             className="hero-animated hero-anim-up mt-6 text-lg lg:text-xl font-medium text-charcoal/80 max-w-2xl text-center leading-relaxed relative z-10"
             style={{ textShadow: '0 2px 10px rgba(255,255,255,0.7)', "--hero-delay": "0.7s", "--hero-duration": "0.6s", "--hero-y": "20px" } as React.CSSProperties}
           >
-            Professional, compassionate therapy for individuals, couples, and
-            families. Your journey to well-being starts here.
+            Confidential counselling with trusted psychologists in Indore &mdash; because your mind deserves care too.
           </p>
 
           <div

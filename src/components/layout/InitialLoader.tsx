@@ -96,6 +96,9 @@ export default function InitialLoader() {
                 
                 var hasFired = false;
 
+                // Explicitly allow scroll in case another component locked it early
+                document.body.style.overflow = '';
+
                 var executeHide = function() {
                   if (hasFired) return;
                   hasFired = true;
@@ -103,14 +106,18 @@ export default function InitialLoader() {
                   // Set a global flag so client-side navigation or slow hydration knows it's done
                   window.__HEALING60_LOADER_DONE = true;
                   
-                  // Dispatch the hero sync event exactly as the loader begins fade-out
-                  document.dispatchEvent(new CustomEvent('hero:release'));
+                  // Start hiding the loader
                   loader.classList.add('hidden');
+                  
+                  // explicitly unlock scroll just in case
+                  document.body.style.overflow = '';
+                  
+                  // Dispatch the hero sync event halfway through the loader fade-out (200ms)
+                  // This gives a synchronized feeling as the loader is fading, while the hero fades in
+                  setTimeout(function() {
+                    document.dispatchEvent(new CustomEvent('hero:release'));
+                  }, 200);
                 };
-
-                var minDelayPromise = new Promise(function(resolve) {
-                  setTimeout(resolve, 3000);
-                });
 
                 var windowLoadPromise = new Promise(function(resolve) {
                   if (document.readyState === 'complete') {
@@ -120,10 +127,10 @@ export default function InitialLoader() {
                   }
                 });
 
-                Promise.all([windowLoadPromise, minDelayPromise]).then(executeHide);
+                windowLoadPromise.then(executeHide);
                 
-                // Hard fallback timeout: 6000ms max (3s min + 3s buffer)
-                setTimeout(executeHide, 6000);
+                // Hard fallback timeout: 4000ms max
+                setTimeout(executeHide, 4000);
               })();
             </script>
           `,

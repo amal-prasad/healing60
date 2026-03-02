@@ -98,17 +98,12 @@ export default function PhilosophySection() {
             className="font-display text-display-section text-charcoal leading-tight drop-shadow-sm"
           >
             {[
-              "Whatever",
-              "brought",
-              "you",
-              "here,",
-              "you",
-              "don't",
-              "have",
-              "to",
-              "carry",
-              "it",
-              "alone.",
+              "Because",
+              "your",
+              "mind",
+              "deserves",
+              "care",
+              "too.",
             ].map((word, i) => (
               <span key={i} className="philosophy-word inline-block mr-3">
                 {word}
@@ -117,10 +112,7 @@ export default function PhilosophySection() {
           </h2>
 
           <p className="philosophy-word mt-8 text-lg text-charcoal-light leading-relaxed max-w-2xl">
-            Life can feel overwhelming — anxiety that won&apos;t quiet, relationships
-            that feel stuck, or a sense of direction that&apos;s gone missing. At
-            Healing60, we create a safe, non-judgmental space for you to explore
-            what&apos;s weighing on you and find your way forward.
+            Healing 60 is a psychology & counselling centre in Indore offering warm, confidential care for individuals, couples, teens, and families. Our licensed professionals are here to help you navigate anxiety, depression, and relationship stress in a stigma-free environment.
           </p>
 
           {/* Interactive Concern Chips Inside Panel */}

@@ -67,25 +67,29 @@ export default function TherapistsSection() {
               >
                 <div className={`perspective-card-inner mt-12 transition-all duration-500 overflow-hidden ${glassClasses}`}>
 
-                  {/* Photo placeholder container */}
+                  {/* Photo container */}
                   <div className={`relative h-64 mx-6 mt-6 rounded-2xl overflow-hidden shadow-inner border border-white/10 ${imageBgClasses}`}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center shadow-sm">
-                        <svg
-                          className="w-12 h-12 text-cream/50"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1}
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                          />
-                        </svg>
+                    {therapist.image ? (
+                      <img src={therapist.image} alt={therapist.name} className="absolute inset-0 w-full h-full object-cover object-center bg-white" />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-24 h-24 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center shadow-sm">
+                          <svg
+                            className="w-12 h-12 text-cream/50"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={1}
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            />
+                          </svg>
+                        </div>
                       </div>
-                    </div>
+                    )}
                     {/* Glassmorphism overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
