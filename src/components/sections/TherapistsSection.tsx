@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { therapists } from "@/lib/data";
@@ -70,7 +71,7 @@ export default function TherapistsSection() {
                   {/* Photo container */}
                   <div className={`relative h-64 mx-6 mt-6 rounded-2xl overflow-hidden shadow-inner border border-white/10 ${imageBgClasses}`}>
                     {therapist.image ? (
-                      <img src={therapist.image} alt={therapist.name} className="absolute inset-0 w-full h-full object-cover object-center bg-white" />
+                      <Image src={therapist.image} alt={therapist.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center bg-white" />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-24 h-24 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center shadow-sm">

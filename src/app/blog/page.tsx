@@ -1,131 +1,127 @@
-import { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Mental health insights, self-care tips, and expert articles from the Healing60 team.",
-};
-
-// Placeholder blog posts (would come from CMS in production)
-const posts = [
-  {
-    slug: "understanding-anxiety",
-    title: "Understanding Anxiety: Signs, Causes, and Coping Strategies",
-    excerpt:
-      "Anxiety is more than just worrying. Learn to recognize the signs, understand what drives it, and discover practical strategies to manage it daily.",
-    category: "Mental Health",
-    date: "2025-12-15",
-    readTime: "5 min read",
-  },
-  {
-    slug: "communication-in-relationships",
-    title: "5 Communication Habits That Strengthen Relationships",
-    excerpt:
-      "Strong relationships are built on healthy communication. Here are five evidence-based habits that can transform how you connect with your partner.",
-    category: "Relationships",
-    date: "2025-11-28",
-    readTime: "4 min read",
-  },
-  {
-    slug: "helping-your-child-with-school-stress",
-    title: "Helping Your Child Navigate School Stress",
-    excerpt:
-      "Academic pressure, social dynamics, and growing up — school can be overwhelming. Here's how parents can support their children's mental health.",
-    category: "Parenting",
-    date: "2025-11-10",
-    readTime: "6 min read",
-  },
-  {
-    slug: "burnout-recovery",
-    title: "Recovering from Burnout: A Step-by-Step Guide",
-    excerpt:
-      "Burnout doesn't happen overnight, and recovery takes time. This guide walks you through recognizing burnout and rebuilding your energy and purpose.",
-    category: "Workplace Wellness",
-    date: "2025-10-22",
-    readTime: "7 min read",
-  },
-  {
-    slug: "mindfulness-for-beginners",
-    title: "Mindfulness for Beginners: Start Your Practice Today",
-    excerpt:
-      "Mindfulness isn't about emptying your mind — it's about being present. Here's a practical, no-nonsense guide to starting a mindfulness practice.",
-    category: "Self-Care",
-    date: "2025-10-05",
-    readTime: "4 min read",
-  },
-  {
-    slug: "when-to-see-a-therapist",
-    title: "How to Know When It's Time to See a Therapist",
-    excerpt:
-      "Many people wonder if their struggles are 'bad enough' to seek help. Here are clear signs that talking to a professional could make a real difference.",
-    category: "Mental Health",
-    date: "2025-09-18",
-    readTime: "5 min read",
-  },
-];
+import Image from "next/image";
 
 export default function BlogPage() {
+  const posts = [
+    {
+      title: "Understanding Anxiety: What Your Body Is Telling You",
+      excerpt: "Anxiety isn't just in your head—it manifests physically. Learn to recognize the subtle physical signs your body uses to communicate stress.",
+      category: "Mental Wellness",
+      readTime: "5 min read",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      title: "When Is the Right Time to Seek Therapy?",
+      excerpt: "You don't need a crisis to benefit from counselling. We explore the nuanced signs that indicate you might benefit from speaking to a professional.",
+      category: "Therapy 101",
+      readTime: "4 min read",
+      image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      title: "Building Resilience at Work Without Burning Out",
+      excerpt: "How to maintain your boundaries and protect your peace while navigating high-pressure corporate environments.",
+      category: "Corporate Wellness",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800&auto=format&fit=crop"
+    }
+  ];
+
   return (
-    <main className="pt-20">
-      <section className="section-padding">
-        <div className="container-wide">
-          <div className="glass-panel-strong p-8 lg:p-12 max-w-3xl mx-auto text-center rounded-3xl">
-            <p className="text-section-index uppercase text-charcoal-light mb-4 heading-on-glass">
-              Blog
-            </p>
-            <h1 className="font-display text-display-hero text-charcoal mx-auto text-balance heading-on-glass">
-              Insights for your{" "}
-              <span className="text-gradient-sage">inner journey.</span>
-            </h1>
-            <p className="mt-6 text-lg text-charcoal-light max-w-xl mx-auto leading-relaxed">
-              Articles, guides, and expert perspectives on mental health,
-              relationships, and personal growth.
-            </p>
-          </div>
+    <div className="relative pt-32 pb-24 min-h-[100svh]">
+      <div className="container-wide">
+        {/* Header & Search */}
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <p className="text-section-index uppercase text-charcoal-light mb-4">Insights & Writing</p>
+          <h1 className="font-display text-display-section text-charcoal mb-8">
+            Notes on Mental Health
+          </h1>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group"
-              >
-                <article className="h-full flex flex-col rounded-2xl border border-charcoal/5 bg-warm-white overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-lavender/10 hover:border-lavender/20">
-                  {/* Thumbnail placeholder */}
-                  <div className="h-48 bg-gradient-to-br from-lavender/15 via-sage/10 to-cream" />
-
-                  <div className="flex-1 flex flex-col p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-xs px-3 py-1 rounded-full bg-lavender/10 text-lavender-deep">
-                        {post.category}
-                      </span>
-                      <span className="text-xs text-charcoal-light">
-                        {post.readTime}
-                      </span>
-                    </div>
-
-                    <h2 className="font-display text-lg font-light text-charcoal group-hover:text-lavender-deep transition-colors duration-300 line-clamp-2">
-                      {post.title}
-                    </h2>
-
-                    <p className="mt-2 text-sm text-charcoal-light leading-relaxed line-clamp-3 flex-1">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="mt-4 flex items-center gap-2 text-sm text-lavender-deep font-medium group-hover:gap-3 transition-all duration-300">
-                      Read article
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            ))}
+          <div className="relative max-w-xl mx-auto">
+            <input
+              type="text"
+              placeholder="Search articles on anxiety, relationships, growth..."
+              className="w-full px-6 py-4 pl-12 bg-white/60 backdrop-blur-md border border-white/80 rounded-full focus:outline-none focus:ring-2 focus:ring-lavender-deep/30 transition-shadow shadow-sm"
+              disabled
+            />
+            <svg className="w-5 h-5 absolute left-5 top-1/2 -translate-y-1/2 text-charcoal/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </div>
         </div>
-      </section>
-    </main>
+
+        {/* Featured Latest */}
+        <div className="mb-16">
+          <div className="group glass-panel-light rounded-3xl overflow-hidden flex flex-col md:flex-row hover:shadow-xl transition-shadow cursor-pointer">
+            <div className="md:w-1/2 relative h-[300px] md:h-auto overflow-hidden">
+              <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+              <Image
+                src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?q=80&w=1200&auto=format&fit=crop"
+                alt="Healing journey"
+                fill
+                priority
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+            </div>
+            <div className="md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative">
+              <div className="absolute top-0 right-0 p-8">
+                <span className="text-xs uppercase tracking-widest bg-sage/30 px-3 py-1.5 rounded-full text-charcoal-light font-semibold">Featured</span>
+              </div>
+              <p className="text-sm font-semibold text-charcoal/60 uppercase tracking-wider mb-4">Self Care • 8 min read</p>
+              <h2 className="font-display text-3xl md:text-4xl text-charcoal mb-6 group-hover:text-sage-deep transition-colors">The Myth of the Perfect Healing Journey</h2>
+              <p className="text-charcoal-light leading-relaxed mb-8 text-lg">
+                Healing is rarely linear. It&apos;s messy, circular, and incredibly personal. Why rejecting the pressure to &apos;heal perfectly&apos; is actually the first step toward genuine recovery.
+              </p>
+              <div className="flex items-center gap-3 text-charcoal font-medium group-hover:gap-4 transition-all">
+                Read the article
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post, i) => (
+            <div key={i} className={`group rounded-3xl overflow-hidden cursor-pointer ${i % 2 === 0 ? 'glass-panel-sage' : 'glass-panel-lavender'} hover:shadow-lg transition-all`}>
+              <div className="h-56 relative overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              </div>
+              <div className="p-8">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-xs font-semibold text-charcoal/60 uppercase tracking-wider">{post.category}</span>
+                  <span className="text-xs text-charcoal-light">{post.readTime}</span>
+                </div>
+                <h3 className="font-display text-xl text-charcoal mb-4 line-clamp-2 leading-snug group-hover:text-charcoal-light transition-colors">{post.title}</h3>
+                <p className="text-sm text-charcoal-light leading-relaxed line-clamp-3 mb-6">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center gap-2 text-sm text-charcoal font-medium">
+                  Read more
+                  <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-20 text-center">
+          <Link href="/contact" className="inline-block glass-panel-light p-10 rounded-3xl w-full max-w-xl mx-auto hover:bg-white/50 transition-colors">
+            <h3 className="font-display text-xl text-charcoal mb-3">Have a specific question?</h3>
+            <p className="text-charcoal-light mb-0 text-sm">Reach out to our therapists directly.</p>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

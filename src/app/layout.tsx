@@ -7,6 +7,7 @@ import WhatsAppFab from "@/components/layout/WhatsAppFab";
 import PageTransition from "@/components/layout/PageTransition";
 import Bubbles from "@/components/layout/Bubbles";
 import GlobalBackground from "@/components/layout/GlobalBackground";
+import EmergencyExit from "@/components/layout/EmergencyExit";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -79,6 +80,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppFab />
+        <EmergencyExit />
       </body>
     </html>
   );
