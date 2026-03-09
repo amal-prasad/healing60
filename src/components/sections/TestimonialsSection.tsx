@@ -107,15 +107,20 @@ export default function TestimonialsSection() {
             </p>
           </div>
           <div className="text-center border-x border-charcoal/10">
-            <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
-              <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.rating}>
-                0
-              </span>
-              <span className="text-charcoal/50">&#9733;</span>
-            </div>
-            <p className="text-caption uppercase text-charcoal/70 mt-2">
-              Google Rating
-            </p>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+              <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
+                <span className="stat-number font-outfit font-light" data-target={siteSettings.stats.rating}>
+                  0
+                </span>
+                <span className="text-charcoal/50">&#9733;</span>
+              </div>
+              <p className="text-caption uppercase text-charcoal/70 mt-2 flex items-center justify-center gap-1">
+                Google Rating
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </p>
+            </a>
           </div>
           <div className="text-center">
             <div className="font-display text-4xl lg:text-5xl font-light text-charcoal">
@@ -144,21 +149,33 @@ export default function TestimonialsSection() {
                 key={t.id}
                 className="testimonial-card flex-shrink-0 w-[85vw] sm:w-[70vw] lg:w-auto snap-center"
               >
-                <div className={`h-full p-8 transition-all duration-300 ${glassClasses}`}>
-                  <StarRating rating={t.rating} />
-                  <p className="mt-4 text-charcoal leading-relaxed text-[0.95rem]">
+                <div className={`h-full p-8 transition-all duration-300 flex flex-col ${glassClasses}`}>
+                  <div className="flex justify-between items-start mb-4">
+                    <StarRating rating={t.rating} />
+                    {t.tag && (
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-1 rounded-full bg-charcoal/5 text-charcoal/70 font-semibold">
+                        {t.tag}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-charcoal leading-relaxed text-[0.95rem] flex-grow">
                     &ldquo;{t.text}&rdquo;
                   </p>
-                  <div className="mt-6 flex flex-col gap-1 border-t border-charcoal/10 pt-6">
-                    <p className="text-sm font-semibold text-charcoal">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-charcoal-light">
-                      {new Date(t.date).toLocaleDateString("en-IN", {
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </p>
+                  <div className="mt-6 flex items-center gap-3 border-t border-charcoal/10 pt-6">
+                    <div className="w-10 h-10 rounded-full bg-sage-200 flex items-center justify-center text-sage-800 font-display font-medium text-lg flex-shrink-0">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <p className="text-sm font-semibold text-charcoal">
+                        {t.name}
+                      </p>
+                      <p className="text-xs text-charcoal-light">
+                        {new Date(t.date).toLocaleDateString("en-IN", {
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

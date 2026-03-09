@@ -92,16 +92,11 @@ export default function TherapistsSection() {
                       </div>
                     )}
                     {/* Glassmorphism overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                      <p className="text-white text-sm italic leading-relaxed text-shadow-strong">
-                        &ldquo;{therapist.quote}&rdquo;
-                      </p>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 transition-opacity duration-500" />
                   </div>
 
                   {/* Info Block */}
-                  <div className="p-6 relative z-10">
+                  <div className="p-6 relative z-10 flex flex-col flex-grow">
                     <h3 className="font-display text-2xl font-medium text-charcoal tracking-tight">
                       {therapist.name}
                     </h3>
@@ -112,8 +107,15 @@ export default function TherapistsSection() {
                       {therapist.specialization}
                     </p>
 
+                    {/* Quote */}
+                    <div className="mt-4 mb-2">
+                      <p className="text-charcoal-600 text-sm italic leading-relaxed border-l-2 border-sage-300 pl-3">
+                        &ldquo;{therapist.quote}&rdquo;
+                      </p>
+                    </div>
+
                     {/* Credentials */}
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-auto pt-4 flex flex-wrap gap-2">
                       {therapist.credentials.map((cred) => (
                         <span
                           key={cred}

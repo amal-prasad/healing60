@@ -28,6 +28,7 @@ export interface Testimonial {
   rating: number;
   text: string;
   date: string;
+  tag?: string;
 }
 
 export interface CorporateService {

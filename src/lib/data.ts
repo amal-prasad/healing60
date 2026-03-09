@@ -309,6 +309,7 @@ export const corporateServices: CorporateService[] = [
 ];
 
 // ─── Testimonials ────────────────────────────────────────────────
+
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
@@ -316,6 +317,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     text: "I recently completed a 120-hour Counselling Psychology internship at Healing 60... an amazing experience. The environment is extremely supportive and informative.",
     date: "2025-10",
+    tag: "Career Counselling",
   },
   {
     id: "t2",
@@ -323,6 +325,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     text: "Did an internship for 120 hours at Healing 60, it was an amazing experience... learned a lot. Deeply thankful to the mentors who helped me grow both personally and professionally.",
     date: "2025-08",
+    tag: "Career Counselling",
   },
   {
     id: "t3",
@@ -330,6 +333,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     text: "Best in their work. The therapy sessions are thoughtful, and you genuinely feel heard and understood without any judgment.",
     date: "2025-06",
+    tag: "Individual Therapy",
   },
   {
     id: "t4",
@@ -337,6 +341,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     text: "As a working professional, I was burnt out and lost. The counselling sessions gave me clarity and a real action plan. Highly recommend Healing 60.",
     date: "2025-04",
+    tag: "Burnout & Stress",
   },
   {
     id: "t5",
@@ -344,6 +349,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     text: "The atmosphere at Healing 60 is so calming. From the moment you walk in, you feel safe. The therapists are warm, professional, and genuinely caring.",
     date: "2025-02",
+    tag: "Anxiety",
   },
   {
     id: "t6",
@@ -351,6 +357,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     text: "I was skeptical about therapy initially, but Healing 60 changed my mind. Their approach is practical, evidence-based, and truly personalized to what I needed.",
     date: "2024-12",
+    tag: "Depression",
   },
 ];
 

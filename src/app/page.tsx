@@ -2,11 +2,13 @@ import HeroSection from "@/components/sections/HeroSection";
 import PhilosophySection from "@/components/sections/PhilosophySection";
 import AboutSection from "@/components/sections/AboutSection";
 import AnimatedSection from "@/components/sections/AnimatedSection";
+import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TherapistsSection from "@/components/sections/TherapistsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CorporateSection from "@/components/sections/CorporateSection";
 import PricingSection from "@/components/sections/PricingSection";
+import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import BookingCTASection from "@/components/sections/BookingCTASection";
 
@@ -26,8 +28,10 @@ export default function Home() {
       />
       <AboutSection />
       <ServicesSection />
+      <HowItWorksSection />
       <TherapistsSection />
       <TestimonialsSection />
+      <FAQSection />
       <AnimatedSection
         imageSrc="/images/sections/corporate-team-wellness.jpeg"
         imageAlt="Team collaborating in a warm, modern office environment"

@@ -50,6 +50,7 @@ export const metadata: Metadata = {
 };
 
 import InitialLoader from "@/components/layout/InitialLoader";
+import WhatsAppFab from "@/components/layout/WhatsAppFab";
 
 export default function RootLayout({
   children,
@@ -78,6 +79,7 @@ export default function RootLayout({
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </main>
         <Footer />
+        <WhatsAppFab />
       </body>
     </html>
   );
