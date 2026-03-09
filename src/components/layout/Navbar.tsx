@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { navItems, siteSettings } from "@/lib/data";
 
@@ -11,6 +12,8 @@ export default function Navbar() {
   const [isHidden, setIsHidden] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +32,22 @@ export default function Navbar() {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isMobileOpen]);
+
+  // Failsafe: close mobile menu and clear scroll lock on route change
+  useEffect(() => {
+    setIsMobileOpen(false);
+    document.body.style.overflow = "";
+  }, [pathname]);
+
+  // Handle mobile nav link click: close menu, then navigate
+  const handleMobileNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      setIsMobileOpen(false);
+      router.push(href);
+    },
+    [router]
+  );
 
   return (
     <>
@@ -117,13 +136,13 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
                 >
-                  <Link
+                  <a
                     href={item.href}
-                    onClick={() => setIsMobileOpen(false)}
+                    onClick={(e) => handleMobileNavClick(e, item.href)}
                     className="font-display text-4xl font-light text-charcoal hover:text-lavender-deep transition-colors duration-300"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
               <motion.div

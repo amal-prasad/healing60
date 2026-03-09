@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { outfit, inter } from "@/lib/fonts";
 import { generateLocalBusinessJsonLd } from "@/lib/jsonLd";
 import Navbar from "@/components/layout/Navbar";
@@ -6,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import Bubbles from "@/components/layout/Bubbles";
 import GlobalBackground from "@/components/layout/GlobalBackground";
+import Loading from "./loading";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -74,7 +76,9 @@ export default function RootLayout({
         <Bubbles />
         <Navbar />
         <main className="relative z-10 flex flex-col min-h-[100svh]">
-          <PageTransition>{children}</PageTransition>
+          <PageTransition>
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+          </PageTransition>
         </main>
         <Footer />
       </body>
