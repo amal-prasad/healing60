@@ -25,7 +25,7 @@ export default function BlogPostPage({ params }: Props) {
     .join(" ");
 
   return (
-    <main className="pt-20">
+    <div className="pt-20">
       <article className="section-padding">
         <div className="container-wide max-w-3xl mx-auto">
           <Link
@@ -64,6 +64,6 @@ export default function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </article>
-    </main>
+    </div>
   );
 }

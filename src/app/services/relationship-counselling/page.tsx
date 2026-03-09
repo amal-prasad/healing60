@@ -71,7 +71,7 @@ export default function RelationshipCounsellingServicePage() {
                             <ul className="space-y-4">
                                 {[
                                     "Recurring arguments that never seem to get resolved.",
-                                    "A feeling of emotional distance or living like &apos;just roommates&apos;.", ,
+                                    "A feeling of emotional distance or living like &apos;just roommates&apos;.",
                                     "Trust issues, including recovery from infidelity or betrayal.",
                                     "Differences in parenting styles, financial management, or life goals.",
                                     "Intimacy and sexual concerns.",

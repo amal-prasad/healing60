@@ -12,7 +12,7 @@ import BookingCTASection from "@/components/sections/BookingCTASection";
 
 export default function Home() {
   return (
-    <main>
+    <div>
       <HeroSection />
       <PhilosophySection />
       <AnimatedSection
@@ -53,6 +53,6 @@ export default function Home() {
         glassPanelVariant="glass-separator-sage"
       />
       <BookingCTASection />
-    </main>
+    </div>
   );
 }

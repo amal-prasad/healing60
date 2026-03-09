@@ -7,8 +7,18 @@ interface Props {
   params: { slug: string };
 }
 
+const PHYSICAL_SERVICE_PAGES = [
+  "career-counselling",
+  "child-counselling",
+  "depression-anxiety",
+  "marriage-counselling",
+  "relationship-counselling",
+];
+
 export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return services
+    .filter((s) => !PHYSICAL_SERVICE_PAGES.includes(s.slug))
+    .map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -26,7 +36,7 @@ export default function ServiceDetailPage({ params }: Props) {
   if (!service) notFound();
 
   return (
-    <main className="pt-20">
+    <div className="pt-20">
       {/* Hero */}
       <section className="section-padding">
         <div className="container-wide">
@@ -202,6 +212,6 @@ export default function ServiceDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
