@@ -68,7 +68,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${outfit.variable} ${inter.variable} font-body antialiased text-charcoal`}
+        className={`${outfit.variable} ${inter.variable} font-body antialiased text-charcoal bg-cream`}
       >
         <GlobalLoader />
         <GlobalBackground />

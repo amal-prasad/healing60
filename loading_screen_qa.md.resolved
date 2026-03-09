@@ -1,0 +1,22 @@
+# Loading Screen Cosmetic Issues
+
+Based on a review of the initial loading sequence and page transitions, here are the cosmetic flaws that make the experience feel jarring rather than smooth:
+
+### 1. The Initial "Black Flash"
+Immediately after the page finishes its raw load request (before the white loading screen with the logo takes over), there is a distinct, split-second flash of black/darkness. This breaks the polished entry experience and makes the website feel like it is stuttering right out of the gate.
+
+### 2. Chopped Background Animations
+The loading screen features very nice "breathing" concentric circles (the Iris animation) spinning and expanding in the background. However, the screen is programmed to forcefully disappear before these circles complete their cycle. As a result, the animation abruptly "chops off" right in the middle of its motion rather than fading out gracefully.
+
+### 3. Rushed, Unreadable Quote
+A calming quote slowly fades into view at the bottom of the screen. Unfortunately, the timing is misaligned: almost immediately after the quote finishes appearing, the entire loading screen begins to vanish. The user has barely one second to read the sentence, transforming what should be a peaceful moment into a rushed, slightly stressful attempt to read the text in time.
+
+### 4. Glitchy Mid-Page Loading
+When clicking between different parts of the website, a smaller loading screen overlay appears holding a pulsing logo. Because this screen only stays visible for a tiny fraction of a second, the eye registers it as a frantic, glitchy flicker across the screen rather than a smooth, deliberate transition.
+
+---
+
+### Video Evidence
+Here is a recording demonstrating these issues in action:
+
+![Loading Screen Issues Recording](/C:/Users/bened/.gemini/antigravity/brain/282de47e-3f27-4a14-becb-11e9fda99d37/loading_screen_issues_1773084105807.webp)

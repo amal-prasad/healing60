@@ -17,25 +17,25 @@ const QUOTES = [
 export default function GlobalLoader() {
     const pathname = usePathname();
 
-    // We use `null` to denote "uninitialized" so we don't flash the wrong loader
-    // before the component mounts.
-    const [loadingMode, setLoadingMode] = useState<"initial" | "route" | null>(null);
+    // We use `initial` to avoid SSR flash, and handle quote in useEffect to avoid hydration error
+    const [loadingMode, setLoadingMode] = useState<"initial" | "route" | null>("initial");
 
     // Track if we've completed the heavy initial mount sequence
     const hasCompletedInitialMount = useRef(false);
 
     // Randomly select one quote per initial load to keep the experience fresh
-    const [quote] = useState(() => QUOTES[Math.floor(Math.random() * QUOTES.length)]);
+    const [quote, setQuote] = useState("");
 
     useEffect(() => {
         // If it's the very first time this component runs on the client:
         if (!hasCompletedInitialMount.current) {
+            setQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)]);
             setLoadingMode("initial");
 
             // Lock scroll completely
             document.body.style.overflow = "hidden";
 
-            // The initial "Breathing Iris" takes ~3500ms
+            // The initial "Breathing Iris" takes ~5000ms
             const initialTimer = setTimeout(() => {
                 hasCompletedInitialMount.current = true;
                 setLoadingMode(null);
@@ -45,13 +45,13 @@ export default function GlobalLoader() {
                 setTimeout(() => {
                     document.dispatchEvent(new CustomEvent("hero:release"));
                 }, 100);
-            }, 3500);
+            }, 5000);
 
             // Failsafe specifically for hydration/hero sync
             const failsafe = setTimeout(() => {
                 // @ts-expect-error fallback
                 window.__HEALING60_LOADER_DONE = true;
-            }, 3600);
+            }, 5100);
 
             return () => {
                 clearTimeout(initialTimer);
@@ -64,11 +64,11 @@ export default function GlobalLoader() {
             setLoadingMode("route");
             document.body.style.overflow = "hidden";
 
-            // The ultra-fast "Soft Wipe" Route Change mode (500ms hold)
+            // The ultra-fast "Soft Wipe" Route Change mode (1000ms hold)
             const routeTimer = setTimeout(() => {
                 setLoadingMode(null);
                 document.body.style.overflow = "";
-            }, 500);
+            }, 1000);
 
             return () => clearTimeout(routeTimer);
         }
@@ -95,37 +95,36 @@ export default function GlobalLoader() {
                     {/* The "Breathing Iris" Concentric Circles */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
                         <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: [0.8, 1.2, 1], opacity: [0, 1, 0] }}
-                            transition={{ duration: 3.5, ease: "easeInOut" }}
+                            animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.2, 0.8, 0.2] }}
+                            transition={{ duration: 5, ease: "easeInOut", repeat: Infinity }}
                             className="absolute w-[60vh] h-[60vh] rounded-full border border-sage-deep/30"
                         />
                         <motion.div
-                            initial={{ scale: 0.6, opacity: 0 }}
-                            animate={{ scale: [0.6, 1.1, 0.9], opacity: [0, 0.8, 0] }}
-                            transition={{ duration: 3.5, ease: "easeInOut", delay: 0.2 }}
+                            animate={{ scale: [0.6, 1.1, 0.6], opacity: [0.1, 0.6, 0.1] }}
+                            transition={{ duration: 5, ease: "easeInOut", delay: 0.3, repeat: Infinity }}
                             className="absolute w-[45vh] h-[45vh] rounded-full border border-lavender-deep/40"
                         />
                         <motion.div
-                            initial={{ scale: 0.4, opacity: 0 }}
-                            animate={{ scale: [0.4, 1, 0.8], opacity: [0, 0.5, 0] }}
-                            transition={{ duration: 3.5, ease: "easeInOut", delay: 0.4 }}
+                            animate={{ scale: [0.4, 0.9, 0.4], opacity: [0, 0.4, 0] }}
+                            transition={{ duration: 5, ease: "easeInOut", delay: 0.6, repeat: Infinity }}
                             className="absolute w-[30vh] h-[30vh] rounded-full bg-sage-deep/5 backdrop-blur-md"
                         />
                     </div>
 
                     <div className="relative z-10 flex flex-col items-center max-w-lg px-6 text-center">
                         <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                            initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+                            className="relative flex items-center justify-center p-8 md:p-10 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.06)]"
                         >
+                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/50 to-transparent opacity-50 pointer-events-none" />
                             <Image
                                 src="/LOGO.png"
                                 alt="Healing60"
-                                width={140}
-                                height={140}
-                                className="w-auto h-auto opacity-90 drop-shadow-sm"
+                                width={180}
+                                height={180}
+                                className="w-auto h-auto opacity-90 drop-shadow-sm relative z-10"
                                 priority
                             />
                         </motion.div>
@@ -148,12 +147,12 @@ export default function GlobalLoader() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2, ease: "linear" }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                     className="fixed inset-0 z-[99999] flex items-center justify-center bg-cream/90 backdrop-blur-xl"
                 >
                     <motion.div
-                        animate={{ scale: [0.95, 1.05, 1], opacity: [0.5, 1, 0.8] }}
-                        transition={{ duration: 0.5, ease: "easeInOut", repeat: Infinity }}
+                        animate={{ scale: [0.95, 1.02, 0.95], opacity: [0.5, 0.9, 0.5] }}
+                        transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
                     >
                         <Image
                             src="/mobile-logo-hero.webp"
