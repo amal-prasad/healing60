@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
 };
 
-import InitialLoader from "@/components/layout/InitialLoader";
+import GlobalLoader from "@/components/layout/GlobalLoader";
 import WhatsAppFab from "@/components/layout/WhatsAppFab";
 
 export default function RootLayout({
@@ -70,7 +70,7 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${inter.variable} font-body antialiased text-charcoal`}
       >
-        <InitialLoader />
+        <GlobalLoader />
         <GlobalBackground />
 
         <Bubbles />
