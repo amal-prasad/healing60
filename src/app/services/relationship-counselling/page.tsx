@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import AnimatedSection from "@/components/sections/AnimatedSection";
 import { siteSettings } from "@/lib/data";
 
 export default function RelationshipCounsellingServicePage() {
@@ -29,6 +30,18 @@ export default function RelationshipCounsellingServicePage() {
                         </p>
                     </div>
                 </div>
+
+                <AnimatedSection
+                    imageSrc="/images/sections/couples-counselling.jpeg"
+                    imageAlt="Couple in a counselling session with a therapist in a warm, light-filled room"
+                    imagePosition="right"
+                    sectionIndex="COUPLES COUNSELLING"
+                    heading="A Safe Space to Reconnect"
+                    body="Relationships take work, and asking for help is a sign of strength, not failure. In our sessions, both partners are heard equally while we guide you toward healthier patterns of communication and deeper emotional intimacy."
+                    ctaLabel="Book a joint session"
+                    ctaHref="/contact"
+                    glassPanelVariant="glass-separator-lavender"
+                />
 
                 <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 max-w-6xl mx-auto">
 

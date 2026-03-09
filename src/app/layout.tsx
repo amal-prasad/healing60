@@ -3,11 +3,9 @@ import { outfit, inter } from "@/lib/fonts";
 import { generateLocalBusinessJsonLd } from "@/lib/jsonLd";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppFab from "@/components/layout/WhatsAppFab";
 import PageTransition from "@/components/layout/PageTransition";
 import Bubbles from "@/components/layout/Bubbles";
 import GlobalBackground from "@/components/layout/GlobalBackground";
-import EmergencyExit from "@/components/layout/EmergencyExit";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -79,8 +77,6 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
-        <WhatsAppFab />
-        <EmergencyExit />
       </body>
     </html>
   );

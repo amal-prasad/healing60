@@ -116,20 +116,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        className="hero-animated hero-anim-fade absolute bottom-10 left-1/2 -translate-x-1/2 z-40"
-        style={{ "--hero-delay": "1.5s", "--hero-duration": "0.8s" } as React.CSSProperties}
-      >
-        <div className="flex flex-col items-center gap-3 text-charcoal-light">
-          <span className="text-xs tracking-[0.2em] font-medium uppercase drop-shadow-sm">Scroll</span>
-          <div className="animate-bounce-slow bg-white/30 backdrop-blur-sm p-2 rounded-full border border-white/40 shadow-sm">
-            <svg className="w-5 h-5 relative top-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

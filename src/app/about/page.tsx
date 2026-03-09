@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import AnimatedSection from "@/components/sections/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "About Us | Healing60",
@@ -43,6 +44,18 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      {/* Philosophy Image Section */}
+      <AnimatedSection
+        imageSrc="/images/sections/philosophy-green-leaves.jpeg"
+        imageAlt="Lush green leaves symbolising growth and renewal"
+        imagePosition="right"
+        sectionIndex="OUR PHILOSOPHY"
+        heading="Growth Happens at Its Own Pace"
+        body="We believe healing is not linear. Like nature, it unfolds in its own time. Our role is to provide the right conditions — safety, trust, and evidence-based guidance — so you can reconnect with your innate capacity for resilience and change."
+        ctaLabel="Explore our services"
+        ctaHref="/services"
+      />
 
       {/* Differentiators */}
       <section className="container-wide mb-24 text-center">
