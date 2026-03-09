@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -16,7 +16,6 @@ const QUOTES = [
 
 export default function GlobalLoader() {
     const pathname = usePathname();
-    const searchParams = useSearchParams();
 
     // We use `null` to denote "uninitialized" so we don't flash the wrong loader
     // before the component mounts.
@@ -74,8 +73,8 @@ export default function GlobalLoader() {
             return () => clearTimeout(routeTimer);
         }
 
-        // We intentionally watch pathname and searchParams to trigger re-runs
-    }, [pathname, searchParams]);
+        // We intentionally watch pathname to trigger re-runs
+    }, [pathname]);
 
     // Don't render anything if not loading
     if (loadingMode === null) return null;
